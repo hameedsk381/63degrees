@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { Search, Flame, Leaf, Fish, Beef, Coffee, Soup, Utensils, UtensilsCrossed, Cherry } from "lucide-react";
 import { FloatingParticles, Reveal, Magnetic, GlowCard } from "@/components/animations";
 
@@ -181,44 +181,58 @@ export default function MenuPage() {
             </Reveal>
 
             {/* Staggered Grid Rendering */}
-            <AnimatePresence mode="wait">
+            <LayoutGroup id="menu-layout">
               <motion.div 
-                key={activeCategory + searchQuery}
-                variants={containerVariants}
-                initial="hidden"
-                animate="show"
-                exit="exit"
+                layout
                 className="grid md:grid-cols-2 gap-4"
               >
-                {filteredItems.length > 0 ? (
-                  filteredItems.map((item) => (
-                    <motion.div key={item.id} variants={itemVariants} style={{ perspective: 1000 }}>
-                      <GlowCard className="bg-brand-linen rounded-2xl p-5 border border-brand-burgundy/10 shadow-md h-full flex flex-col group hover:shadow-xl hover:border-brand-burgundy/30 transition-all duration-300">
-                        <div className="flex justify-between items-start mb-2">
-                          <div className="flex items-start gap-3">
-                            <span className={`mt-1.5 w-2 h-2 rounded-full shrink-0 ${item.type === 'veg' ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.4)]' : 'bg-brand-burgundy shadow-[0_0_8px_rgba(171,31,35,0.4)]'}`} />
-                            <h3 className="text-brand-text font-display text-xl tracking-wide group-hover:text-brand-burgundy transition-colors">{item.name}</h3>
-                          </div>
-                          {item.spicy && (
-                            <div className="flex items-center gap-1 bg-brand-burgundy/10 text-brand-burgundy px-2 py-0.5 rounded text-[10px] font-bold tracking-wider border border-brand-burgundy/20 shrink-0">
-                              <Flame size={10} /> SPICY
+                <AnimatePresence>
+                  {filteredItems.length > 0 ? (
+                    filteredItems.map((item) => (
+                      <motion.div 
+                        key={item.id} 
+                        layout
+                        variants={itemVariants} 
+                        initial="hidden"
+                        animate="show"
+                        exit="exit"
+                        style={{ perspective: 1000 }}
+                      >
+                        <GlowCard className="bg-brand-linen rounded-2xl p-5 border border-brand-burgundy/10 shadow-md h-full flex flex-col group hover:shadow-xl hover:border-brand-burgundy/30 transition-all duration-300">
+                          <div className="flex justify-between items-start mb-2">
+                            <div className="flex items-start gap-3">
+                              <span className={`mt-1.5 w-2 h-2 rounded-full shrink-0 ${item.type === 'veg' ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.4)]' : 'bg-brand-burgundy shadow-[0_0_8px_rgba(171,31,35,0.4)]'}`} />
+                              <h3 className="text-brand-text font-display text-xl tracking-wide group-hover:text-brand-burgundy transition-colors">{item.name}</h3>
                             </div>
-                          )}
-                        </div>
-                        <p className="text-brand-text/60 text-sm leading-relaxed pl-5 group-hover:text-brand-text/80 transition-colors flex-grow">
-                          {item.desc}
-                        </p>
-                      </GlowCard>
+                            {item.spicy && (
+                              <div className="flex items-center gap-1 bg-brand-burgundy/10 text-brand-burgundy px-2 py-0.5 rounded text-[10px] font-bold tracking-wider border border-brand-burgundy/20 shrink-0">
+                                <Flame size={10} /> SPICY
+                              </div>
+                            )}
+                          </div>
+                          <p className="text-brand-text/60 text-sm leading-relaxed pl-5 group-hover:text-brand-text/80 transition-colors flex-grow">
+                            {item.desc}
+                          </p>
+                        </GlowCard>
+                      </motion.div>
+                    ))
+                  ) : (
+                    <motion.div 
+                      key="no-items"
+                      layout
+                      variants={itemVariants} 
+                      initial="hidden"
+                      animate="show"
+                      exit="exit"
+                      className="col-span-full py-32 text-center text-brand-text/40"
+                    >
+                      <UtensilsCrossed size={48} className="mx-auto mb-6 opacity-20" />
+                      <p className="font-display text-2xl text-brand-text/60">No dishes found matching your criteria.</p>
                     </motion.div>
-                  ))
-                ) : (
-                  <motion.div variants={itemVariants} className="col-span-full py-32 text-center text-brand-text/40">
-                    <UtensilsCrossed size={48} className="mx-auto mb-6 opacity-20" />
-                    <p className="font-display text-2xl text-brand-text/60">No dishes found matching your criteria.</p>
-                  </motion.div>
-                )}
+                  )}
+                </AnimatePresence>
               </motion.div>
-            </AnimatePresence>
+            </LayoutGroup>
           </div>
 
         </div>
