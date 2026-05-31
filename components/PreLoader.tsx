@@ -11,11 +11,11 @@ export default function PreLoader() {
     // Lock body scroll
     document.body.style.overflow = "hidden";
     
-    // Minimum load time for theatrical effect
+    const checkReady = performance.now() < 400 ? 800 : 400;
     const timer = setTimeout(() => {
       setIsLoading(false);
       document.body.style.overflow = "";
-    }, 2800);
+    }, checkReady);
 
     return () => {
       clearTimeout(timer);

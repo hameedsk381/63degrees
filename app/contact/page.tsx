@@ -19,9 +19,10 @@ export default function ContactPage() {
       
       {/* ── HERO ── */}
       <section className="relative pt-44 pb-20 overflow-hidden bg-brand-linen">
-        <FloatingParticles count={15} color="rgba(171,31,35,0.12)" />
+        <FloatingParticles count={5} color="rgba(171,31,35,0.12)" />
         
         {/* Fine Architectural Grid backdrop */}
+        <div className="absolute inset-0 bg-lotus opacity-[0.25] mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-grid-bg opacity-[0.06] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,rgba(171,31,35,0.03),transparent)] pointer-events-none" />
         

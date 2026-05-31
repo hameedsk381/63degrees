@@ -60,10 +60,11 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["Jost", "sans-serif"],
-        body: ["Jost", "sans-serif"],
-        accent: ["Playfair Display", "serif"],
-        inter: ["Jost", "sans-serif"],
+        display: ["var(--font-playfair)", "serif"],
+        body: ["var(--font-jost)", "sans-serif"],
+        accent: ["var(--font-playfair)", "serif"],
+        heading: ["var(--font-bebas)", "sans-serif"],
+        inter: ["var(--font-jost)", "sans-serif"],
       },
       backgroundImage: {
         "noise": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E\")",
@@ -74,6 +75,13 @@ const config: Config = {
         "radial-gold": "radial-gradient(ellipse 50% 40% at 70% 50%, rgba(212,168,83,0.05) 0%, transparent 60%)",
         "radial-flame-dark": "radial-gradient(ellipse 70% 60% at 50% 40%, rgba(255,90,0,0.08) 0%, transparent 70%)",
         "radial-glow-dark": "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255,90,0,0.05) 0%, transparent 60%)",
+
+        "mandala": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='currentColor' stroke-width='0.3' opacity='0.15'%3E%3Ccircle cx='50' cy='50' r='48'/%3E%3Ccircle cx='50' cy='50' r='36'/%3E%3Ccircle cx='50' cy='50' r='24'/%3E%3Ccircle cx='50' cy='50' r='12'/%3E%3C/g%3E%3Cg fill='currentColor' opacity='0.06'%3E%3Ccircle cx='50' cy='4' r='1.5'/%3E%3Ccircle cx='50' cy='96' r='1.5'/%3E%3Ccircle cx='4' cy='50' r='1.5'/%3E%3Ccircle cx='96' cy='50' r='1.5'/%3E%3Ccircle cx='50' cy='50' r='2'/%3E%3C/g%3E%3Cg fill='none' stroke='currentColor' stroke-width='0.2' opacity='0.08'%3E%3Cpath d='M50 12 L56 24 L50 36 L44 24Z'/%3E%3Cpath d='M50 64 L56 76 L50 88 L44 76Z'/%3E%3Cpath d='M12 50 L24 56 L36 50 L24 44Z'/%3E%3Cpath d='M64 50 L76 56 L88 50 L76 44Z'/%3E%3C/g%3E%3C/svg%3E\")",
+        "paisley": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='currentColor' stroke-width='0.4' opacity='0.12'%3E%3Cpath d='M50 25 Q70 40 65 60 Q60 75 50 82 Q40 75 35 60 Q30 40 50 25Z'/%3E%3Cpath d='M50 45 Q58 52 55 62 Q50 72 45 62 Q42 52 50 45Z'/%3E%3Cpath d='M50 20 Q45 15 50 10 Q55 15 50 20Z'/%3E%3C/g%3E%3Ccircle cx='50' cy='50' r='1.5' fill='currentColor' opacity='0.05'/%3E%3C/svg%3E\")",
+        "blockprint": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='currentColor' stroke-width='0.3' opacity='0.12'%3E%3Crect x='28' y='28' width='24' height='24' rx='2'/%3E%3Crect x='34' y='34' width='12' height='12' rx='1'/%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3C/g%3E%3Cg fill='none' stroke='currentColor' stroke-width='0.3' opacity='0.08'%3E%3Cpath d='M40 24 L44 28 L36 28Z'/%3E%3Cpath d='M40 56 L44 52 L36 52Z'/%3E%3Cpath d='M24 40 L28 44 L28 36Z'/%3E%3Cpath d='M56 40 L52 44 L52 36Z'/%3E%3C/g%3E%3Cg fill='currentColor' opacity='0.04'%3E%3Ccircle cx='40' cy='20' r='1'/%3E%3Ccircle cx='40' cy='60' r='1'/%3E%3Ccircle cx='20' cy='40' r='1'/%3E%3Ccircle cx='60' cy='40' r='1'/%3E%3C/g%3E%3C/svg%3E\")",
+        "warli": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='currentColor' stroke-width='0.5' opacity='0.1'%3E%3Ccircle cx='50' cy='32' r='12'/%3E%3Cpath d='M38 50 L50 58 L62 50'/%3E%3Cpath d='M42 58 L50 65 L58 58'/%3E%3Cline x1='50' y1='22' x2='50' y2='18'/%3E%3Cline x1='38' y1='25' x2='25' y2='20'/%3E%3Cline x1='62' y1='25' x2='75' y2='20'/%3E%3C/g%3E%3Cg fill='none' stroke='currentColor' stroke-width='0.3' opacity='0.06'%3E%3Cline x1='0' y1='78' x2='30' y2='78'/%3E%3Cline x1='70' y1='78' x2='100' y2='78'/%3E%3C/g%3E%3C/svg%3E\")",
+        "rangoli": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='currentColor' opacity='0.07'%3E%3Ccircle cx='40' cy='40' r='2.5'/%3E%3Ccircle cx='40' cy='20' r='1.5'/%3E%3Ccircle cx='40' cy='60' r='1.5'/%3E%3Ccircle cx='20' cy='40' r='1.5'/%3E%3Ccircle cx='60' cy='40' r='1.5'/%3E%3Ccircle cx='25' cy='25' r='1'/%3E%3Ccircle cx='55' cy='25' r='1'/%3E%3Ccircle cx='25' cy='55' r='1'/%3E%3Ccircle cx='55' cy='55' r='1'/%3E%3Ccircle cx='40' cy='10' r='1'/%3E%3Ccircle cx='40' cy='70' r='1'/%3E%3Ccircle cx='10' cy='40' r='1'/%3E%3Ccircle cx='70' cy='40' r='1'/%3E%3C/g%3E%3Cg fill='none' stroke='currentColor' stroke-width='0.2' opacity='0.06'%3E%3Cline x1='20' y1='40' x2='40' y2='20'/%3E%3Cline x1='40' y1='20' x2='60' y2='40'/%3E%3Cline x1='60' y1='40' x2='40' y2='60'/%3E%3Cline x1='40' y1='60' x2='20' y2='40'/%3E%3C/g%3E%3C/svg%3E\")",
+        "lotus": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='currentColor' stroke-width='0.4' opacity='0.1'%3E%3Cpath d='M50 85 Q30 55 38 30 Q44 20 50 28 Q56 20 62 30 Q70 55 50 85Z'/%3E%3Cpath d='M50 78 Q36 55 42 36 Q46 28 50 34 Q54 28 58 36 Q64 55 50 78Z'/%3E%3Cpath d='M25 48 Q12 38 15 28 Q18 21 25 27 Q28 33 25 48Z'/%3E%3Cpath d='M75 48 Q88 38 85 28 Q82 21 75 27 Q72 33 75 48Z'/%3E%3C/g%3E%3Ccircle cx='50' cy='52' r='3' fill='currentColor' opacity='0.05'/%3E%3C/svg%3E\")",
       },
       boxShadow: {
         "glow-sm": "0 0 20px rgba(255,90,0,0.12)",

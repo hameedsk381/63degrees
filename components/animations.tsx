@@ -278,7 +278,7 @@ type FloatingParticlesProps = {
   color?: string;
   className?: string;
 };
-export function FloatingParticles({ count = 12, color = "rgba(255,90,0,0.2)", className = "" }: FloatingParticlesProps) {
+export function FloatingParticles({ count = 4, color = "rgba(255,90,0,0.2)", className = "" }: FloatingParticlesProps) {
   const particles = useMemo(() => {
     const arr: Particle[] = [];
     for (let i = 0; i < count; i++) {
@@ -286,10 +286,10 @@ export function FloatingParticles({ count = 12, color = "rgba(255,90,0,0.2)", cl
         id: i,
         x: Math.random() * 100,
         y: Math.random() * 100,
-        size: Math.random() * 4 + 1.5,
-        duration: Math.random() * 6 + 4,
-        delay: Math.random() * 4,
-        opacity: Math.random() * 0.4 + 0.1,
+        size: Math.random() * 3 + 1.5,
+        duration: Math.random() * 5 + 4,
+        delay: Math.random() * 3,
+        opacity: Math.random() * 0.3 + 0.1,
       });
     }
     return arr;
@@ -307,13 +307,11 @@ export function FloatingParticles({ count = 12, color = "rgba(255,90,0,0.2)", cl
             width: p.size,
             height: p.size,
             backgroundColor: color,
-            boxShadow: `0 0 ${p.size * 3}px ${color}`,
             willChange: "transform",
           }}
           animate={{
-            y: [0, -30, 0, 20, 0],
-            x: [0, 15, -10, 5, 0],
-            opacity: [p.opacity, p.opacity * 2, p.opacity, 0, p.opacity],
+            y: [0, -20, 0, -10, 0],
+            opacity: [p.opacity, p.opacity * 1.5, p.opacity, p.opacity * 0.5, p.opacity],
           }}
           transition={{
             duration: p.duration,
@@ -404,16 +402,23 @@ type MagneticProps = { children: ReactNode; className?: string; strength?: numbe
 export function Magnetic({ children, className = "", strength = 0.3 }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
+  const rAF = useRef(0);
 
   const handleMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left - rect.width / 2) * strength;
-    const y = (e.clientY - rect.top - rect.height / 2) * strength;
-    setPos({ x, y });
+    cancelAnimationFrame(rAF.current);
+    rAF.current = requestAnimationFrame(() => {
+      if (!ref.current) return;
+      const rect = ref.current.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) * strength;
+      const y = (e.clientY - rect.top - rect.height / 2) * strength;
+      setPos({ x, y });
+    });
   };
 
-  const handleLeave = () => setPos({ x: 0, y: 0 });
+  const handleLeave = () => {
+    cancelAnimationFrame(rAF.current);
+    setPos({ x: 0, y: 0 });
+  };
 
   return (
     <motion.div

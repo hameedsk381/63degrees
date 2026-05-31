@@ -138,7 +138,38 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        {/* Bottom bar */}
+          {/* Gallery strip */}
+          <motion.div
+            className="mb-12"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.25 }}
+          >
+            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none -mx-6 px-6 snap-x">
+              {[
+                "/images/food.jpg",
+                "/images/1.jpg",
+                "/images/bi.png",
+                "/images/2.jpg",
+                "/images/2024-02-07.jpg",
+                "/images/4.jpg",
+              ].map((src, i) => (
+                <div
+                  key={i}
+                  className="relative w-28 h-20 rounded-xl overflow-hidden shrink-0 snap-start border border-brand-burgundy/5 hover:border-brand-gold/30 transition-all duration-500"
+                >
+                  <Image
+                    src={src}
+                    alt={`Gallery ${i + 1}`}
+                    fill
+                    className="object-cover hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Bottom bar */}
         <motion.div
           className="border-t border-brand-burgundy/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
           initial={{ opacity: 0 }}
@@ -152,8 +183,8 @@ export default function Footer() {
           <div className="flex items-center gap-4">
             <p className="text-brand-text/50 text-[10px]">
               Designed and Developed by{" "}
-              <a href="https://wmwpl.com/" target="_blank" rel="noreferrer" className="hover:text-brand-burgundy transition-colors">
-                Wanderers
+              <a href="https://hamathopc.in" target="_blank" rel="noreferrer" className="hover:text-brand-burgundy transition-colors">
+                Hamathopc Pvt Ltd
               </a>
             </p>
             <button

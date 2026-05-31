@@ -42,7 +42,8 @@ export default function BookTablePage() {
   const timeSlots = ["12:00 PM", "12:30 PM", "01:00 PM", "01:30 PM", "02:00 PM", "07:00 PM", "07:30 PM", "08:00 PM", "08:30 PM", "09:00 PM", "09:30 PM"];
 
   return (
-    <div className="bg-brand-linen min-h-screen pt-24 pb-20">
+    <div className="bg-brand-linen min-h-screen pt-24 pb-20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-rangoli opacity-[0.25] mix-blend-overlay pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_0%,rgba(171,31,35,0.06),transparent)] pointer-events-none" />
       
       <div className="container-wide relative z-10">

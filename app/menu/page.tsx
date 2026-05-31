@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
-import { Search, Flame, Leaf, Fish, Beef, Coffee, Soup, Utensils, UtensilsCrossed, Cherry } from "lucide-react";
-import { FloatingParticles, Reveal, Magnetic, GlowCard } from "@/components/animations";
+import { Search, Flame, Leaf, Fish, Beef, Coffee, Soup, Utensils, UtensilsCrossed, Cherry, ChefHat, Sparkles, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { FloatingParticles, Reveal, Magnetic, GlowCard, FadeUp } from "@/components/animations";
 
 const categories = [
   { id: "all", label: "All Items", icon: UtensilsCrossed },
@@ -34,49 +36,39 @@ const menuItems = [
   { id: 12, name: "Chocolate Brownie", category: "desserts", type: "veg", desc: "Warm gooey chocolate brownie served with vanilla ice cream." },
 ];
 
-// Staggered Variants for the Grid
 const containerVariants = {
   hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.05 }
-  },
-  exit: {
-    opacity: 0,
-    transition: { staggerChildren: 0.02, staggerDirection: -1 }
-  }
+  show: { opacity: 1, transition: { staggerChildren: 0.05 } },
+  exit: { opacity: 0, transition: { staggerChildren: 0.02, staggerDirection: -1 } },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20, rotateX: -10 },
   show: { opacity: 1, y: 0, rotateX: 0, transition: { type: "spring", stiffness: 200, damping: 20 } },
-  exit: { opacity: 0, y: -20, rotateX: 10, transition: { duration: 0.2 } }
+  exit: { opacity: 0, y: -20, rotateX: 10, transition: { duration: 0.2 } },
 };
 
-// Infinite Marquee Component
-const Marquee = () => {
-  return (
-    <div className="relative flex overflow-hidden whitespace-nowrap bg-brand-burgundy border-y border-brand-burgundy/80 py-4 mb-16 shadow-[0_0_30px_rgba(171,31,35,0.2)]">
-      <div className="absolute inset-0 bg-noise opacity-20 mix-blend-overlay pointer-events-none" />
-      <motion.div
-        className="flex space-x-12 shrink-0 items-center"
-        animate={{ x: ["0%", "-100%"] }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-      >
-        {[...Array(2)].map((_, i) => (
-          <div key={i} className="flex space-x-12 shrink-0 items-center text-3xl md:text-5xl font-display tracking-wider">
-            <span className="text-white">250+ DISHES</span>
-            <span className="text-brand-gold">✦</span>
-            <span className="text-white">THE BAAP OF BUFFETS</span>
-            <span className="text-brand-gold">✦</span>
-            <span className="font-accent italic text-brand-linen font-light">Global Spread</span>
-            <span className="text-brand-gold">✦</span>
-          </div>
-        ))}
-      </motion.div>
-    </div>
-  );
-};
+const Marquee = () => (
+  <div className="relative flex overflow-hidden whitespace-nowrap bg-brand-burgundy border-y border-brand-burgundy/80 py-4 mb-16 shadow-[0_0_30px_rgba(171,31,35,0.2)]">
+    <div className="absolute inset-0 bg-noise opacity-20 mix-blend-overlay pointer-events-none" />
+    <motion.div
+      className="flex space-x-12 shrink-0 items-center"
+      animate={{ x: ["0%", "-100%"] }}
+      transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+    >
+      {[...Array(2)].map((_, i) => (
+        <div key={i} className="flex space-x-12 shrink-0 items-center text-3xl md:text-5xl font-display tracking-wider">
+          <span className="text-white">250+ DISHES</span>
+          <span className="text-brand-gold">✦</span>
+          <span className="text-white">THE BAAP OF BUFFETS</span>
+          <span className="text-brand-gold">✦</span>
+          <span className="font-accent italic text-brand-linen font-light">Global Spread</span>
+          <span className="text-brand-gold">✦</span>
+        </div>
+      ))}
+    </motion.div>
+  </div>
+);
 
 export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -84,40 +76,91 @@ export default function MenuPage() {
 
   const filteredItems = menuItems.filter(item => {
     const matchesCategory = activeCategory === "all" || item.category === activeCategory;
-    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           item.desc.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
   return (
-    <div className="bg-brand-linen min-h-screen pt-36 lg:pt-44 pb-20 relative">
-      <FloatingParticles count={20} color="rgba(171,31,35,0.1)" />
-      
-      {/* ── HEADER MARQUEE ── */}
+    <div className="bg-brand-linen min-h-screen">
+      {/* ── HERO ── */}
+      <section className="relative pt-36 pb-24 overflow-hidden bg-brand-linen">
+        <FloatingParticles count={4} color="rgba(171,31,35,0.1)" />
+        <div className="absolute inset-0 bg-blockprint opacity-[0.25] mix-blend-overlay pointer-events-none" />
+        <div className="absolute inset-0 bg-grid-bg opacity-[0.04] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,rgba(171,31,35,0.04),transparent)]" />
+
+        <div className="container-wide relative z-10 text-center">
+          <FadeUp delay={0.15}>
+            <p className="text-brand-burgundy text-[10px] font-bold tracking-[0.3em] uppercase mb-4">Curated For You</p>
+          </FadeUp>
+          <Reveal delay={0.25}>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display text-brand-text leading-[0.9] mb-5">
+              EXPLORE OUR <span className="text-brand-burgundy">MENU</span>
+            </h1>
+          </Reveal>
+          <FadeUp delay={0.5}>
+            <p className="text-brand-text/80 text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+              From sizzling live grills to decadent desserts — discover 250+ dishes crafted to perfection.
+            </p>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* ── FEATURED CATEGORIES ── */}
+      <section className="pb-16">
+        <div className="container-wide">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { img: "/images/Im1.jpg", label: "Live Grills", count: "12+ varieties" },
+              { img: "/images/63-degrees.jpg", label: "Biryani & Rice", count: "8+ styles" },
+              { img: "/images/Schezwan-Paneer.jpg", label: "Starters", count: "40+ options" },
+              { img: "/images/3.jpg", label: "Desserts", count: "25+ delights" },
+            ].map((item, i) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="relative h-52 rounded-2xl overflow-hidden group cursor-pointer"
+                data-cursor="hover"
+              >
+                <Image src={item.img} alt={item.label} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <h3 className="text-white font-display text-lg">{item.label}</h3>
+                  <p className="text-white/50 text-xs mt-1">{item.count}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── MARQUEE ── */}
       <Reveal>
         <Marquee />
       </Reveal>
 
       {/* ── MENU CONTENT ── */}
-      <section className="container-wide relative z-10">
+      <section className="container-wide relative z-10 pb-20">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 relative items-start">
-          
-          {/* Sticky Sidebar (Sticky only on desktop to prevent overlaps) */}
+
+          {/* Sidebar */}
           <div className="lg:col-span-3 lg:sticky lg:top-28 space-y-6 lg:space-y-8 z-20">
             <Reveal>
-              {/* Search */}
               <div className="relative" data-cursor="hover">
                 <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-text/50" />
-                <input 
-                  type="text" 
-                  placeholder="Search dishes..." 
+                <input
+                  type="text"
+                  placeholder="Search dishes..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full h-12 pl-11 pr-4 bg-brand-linen/60 backdrop-blur-md border border-brand-burgundy/10 rounded-xl text-brand-text placeholder-brand-text/40 focus:outline-none focus:border-brand-burgundy/50 transition-colors shadow-sm"
                 />
               </div>
 
-              {/* Categories */}
               <div className="mt-4 lg:mt-8 bg-brand-linen/60 backdrop-blur-xl rounded-2xl p-4 border border-brand-burgundy/10 shadow-xl overflow-hidden">
                 <h3 className="hidden lg:block text-brand-text/60 text-[10px] font-bold tracking-widest uppercase mb-4 pl-4 border-b border-brand-burgundy/10 pb-2">
                   Categories
@@ -130,21 +173,21 @@ export default function MenuPage() {
                         <button
                           onClick={() => setActiveCategory(cat.id)}
                           className={`flex items-center gap-3 lg:gap-4 shrink-0 px-4 py-2.5 lg:py-3 rounded-xl transition-all duration-300 relative overflow-hidden group ${
-                            isActive 
-                              ? "bg-brand-burgundy/5 border border-brand-burgundy/20" 
+                            isActive
+                              ? "bg-brand-burgundy/5 border border-brand-burgundy/20"
                               : "border border-transparent hover:bg-brand-burgundy/5"
                           }`}
                         >
                           {isActive && (
-                            <motion.span 
+                            <motion.span
                               layoutId="activeCategoryIndicator"
                               className="absolute left-0 bottom-0 lg:top-0 w-full lg:w-1 h-1 lg:h-full bg-brand-burgundy"
                             />
                           )}
                           <cat.icon size={16} className={isActive ? "text-brand-burgundy" : "text-brand-text/40 group-hover:text-brand-burgundy/80 transition-colors"} />
                           <span className={`text-sm transition-colors ${
-                            isActive 
-                              ? "text-brand-burgundy font-accent italic text-base font-bold" 
+                            isActive
+                              ? "text-brand-burgundy font-accent italic text-base font-bold"
                               : "text-brand-text/80 group-hover:text-brand-burgundy font-medium"
                           }`}>
                             {cat.label}
@@ -180,19 +223,15 @@ export default function MenuPage() {
               </div>
             </Reveal>
 
-            {/* Staggered Grid Rendering */}
             <LayoutGroup id="menu-layout">
-              <motion.div 
-                layout
-                className="grid md:grid-cols-2 gap-4"
-              >
+              <motion.div layout className="grid md:grid-cols-2 gap-4">
                 <AnimatePresence>
                   {filteredItems.length > 0 ? (
                     filteredItems.map((item) => (
-                      <motion.div 
-                        key={item.id} 
+                      <motion.div
+                        key={item.id}
                         layout
-                        variants={itemVariants} 
+                        variants={itemVariants}
                         initial="hidden"
                         animate="show"
                         exit="exit"
@@ -217,10 +256,10 @@ export default function MenuPage() {
                       </motion.div>
                     ))
                   ) : (
-                    <motion.div 
+                    <motion.div
                       key="no-items"
                       layout
-                      variants={itemVariants} 
+                      variants={itemVariants}
                       initial="hidden"
                       animate="show"
                       exit="exit"
@@ -234,7 +273,67 @@ export default function MenuPage() {
               </motion.div>
             </LayoutGroup>
           </div>
+        </div>
+      </section>
 
+      {/* ── CHEF'S RECOMMENDATION ── */}
+      <section className="py-24 bg-brand-dark relative overflow-hidden">
+        <div className="absolute inset-0 bg-noise opacity-30 mix-blend-overlay pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_50%,rgba(171,31,35,0.06),transparent)]" />
+
+        <div className="container-wide relative z-10">
+          <Reveal className="text-center mb-16">
+            <p className="text-brand-gold text-[10px] font-bold tracking-[0.3em] uppercase mb-4">Chef&apos;s Selection</p>
+            <h2 className="text-4xl md:text-5xl font-display text-white leading-tight">
+              MUST-TRY <span className="font-accent italic text-brand-gold font-light">Specials</span>
+            </h2>
+          </Reveal>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { img: "/images/Schezwan-Paneer.jpg", name: "Schezwan Paneer", tag: "Chef's Signature", desc: "Our most ordered starter — crispy, spicy, and absolutely addictive." },
+              { img: "/images/im3.jpg", name: "Chicken Dum Biryani", tag: "Guest Favorite", desc: "Fragrant layered biryani slow-cooked to perfection in sealed dum." },
+              { img: "/images/3.jpg", name: "Gulab Jamun", tag: "Best Seller", desc: "Warm, soft milk dumplings drenched in rose-scented sugar syrup." },
+            ].map((item, i) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="group relative rounded-2xl overflow-hidden border border-white/5"
+              >
+                <div className="relative h-64">
+                  <Image src={item.img} alt={item.name} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                </div>
+                <div className="p-6 bg-white/[0.02]">
+                  <span className="inline-block px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-[10px] font-bold tracking-wider uppercase mb-3">{item.tag}</span>
+                  <h3 className="text-white font-display text-xl mb-2">{item.name}</h3>
+                  <p className="text-white/50 text-sm">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-24 bg-brand-linen">
+        <div className="container-wide text-center">
+          <Reveal>
+            <h2 className="text-4xl md:text-5xl font-display text-brand-text mb-4 leading-tight">
+              READY TO <span className="text-brand-burgundy">TASTE</span> IT ALL?
+            </h2>
+            <p className="text-brand-text/70 mb-10 max-w-md mx-auto">
+              Come experience 250+ dishes at Hyderabad's favorite buffet destination.
+            </p>
+            <Link
+              href="/book-a-table"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-brand-burgundy text-white font-bold tracking-[0.2em] uppercase rounded-full hover:bg-brand-burgundy/90 transition-colors shadow-xl text-xs"
+            >
+              Reserve a Table <ArrowRight size={14} className="-rotate-45" />
+            </Link>
+          </Reveal>
         </div>
       </section>
     </div>

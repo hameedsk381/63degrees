@@ -1,50 +1,51 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 
 export default function CustomCursor() {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
   const [visible, setVisible] = useState(false);
   const [hoverState, setHoverState] = useState<"none" | "hover" | "drag" | "view">("none");
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 150, damping: 15, mass: 0.5 });
+  const springY = useSpring(mouseY, { stiffness: 150, damping: 15, mass: 0.5 });
+  const dotX = useSpring(mouseX, { stiffness: 400, damping: 25, mass: 0.3 });
+  const dotY = useSpring(mouseY, { stiffness: 400, damping: 25, mass: 0.3 });
+  const lastTarget = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    // Disable on touch devices
     if (typeof window !== "undefined" && "ontouchstart" in window) return;
 
-    const move = (e: MouseEvent) => {
-      setPos({ x: e.clientX, y: e.clientY });
+    const handleMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
       setVisible(true);
-    };
 
-    const enter = () => setVisible(true);
-    const leave = () => setVisible(false);
+      const el = e.target as HTMLElement;
+      if (!el || el === lastTarget.current) return;
+      lastTarget.current = el;
 
-    let lastTarget: HTMLElement | null = null;
-    const checkHover = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (!target || target === lastTarget) return;
-      lastTarget = target;
-      
-      if (target.closest("[data-cursor='drag']")) {
+      if (el.closest("[data-cursor='drag']")) {
         setHoverState("drag");
-      } else if (target.closest("[data-cursor='view']")) {
+      } else if (el.closest("[data-cursor='view']")) {
         setHoverState("view");
-      } else if (target.closest("a, button, [role='button'], input, textarea, select, [data-cursor='hover']")) {
+      } else if (el.closest("a, button, [role='button'], input, textarea, select, [data-cursor='hover']")) {
         setHoverState("hover");
       } else {
         setHoverState("none");
       }
     };
 
-    window.addEventListener("mousemove", move);
-    window.addEventListener("mousemove", checkHover);
+    const enter = () => setVisible(true);
+    const leave = () => { setVisible(false); setHoverState("none"); };
+
+    window.addEventListener("mousemove", handleMove, { passive: true });
     document.addEventListener("mouseenter", enter);
     document.addEventListener("mouseleave", leave);
-    
+
     return () => {
-      window.removeEventListener("mousemove", move);
-      window.removeEventListener("mousemove", checkHover);
+      window.removeEventListener("mousemove", handleMove);
       document.removeEventListener("mouseenter", enter);
       document.removeEventListener("mouseleave", leave);
     };
@@ -54,25 +55,24 @@ export default function CustomCursor() {
 
   const isTextState = hoverState === "drag" || hoverState === "view";
   const isHover = hoverState === "hover";
+  const w = isTextState ? 80 : isHover ? 48 : 32;
+  const h = isTextState ? 80 : isHover ? 48 : 32;
 
   return (
     <>
-      {/* Outer cursor / Text Container */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9999] hidden lg:flex items-center justify-center overflow-hidden"
-        animate={{
-          x: pos.x - (isTextState ? 40 : isHover ? 24 : 16),
-          y: pos.y - (isTextState ? 40 : isHover ? 24 : 16),
-          width: isTextState ? 80 : isHover ? 48 : 32,
-          height: isTextState ? 80 : isHover ? 48 : 32,
-          backgroundColor: isTextState ? "rgba(171,31,35,0.9)" : "transparent",
-          backdropFilter: isTextState ? "blur(4px)" : "none",
-        }}
-        transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.5 }}
         style={{
+          x: springX,
+          y: springY,
+          width: w,
+          height: h,
+          marginLeft: -(w / 2),
+          marginTop: -(h / 2),
           borderRadius: "50%",
           border: isTextState ? "none" : "1.5px solid rgba(171,31,35,0.6)",
-          mixBlendMode: "normal",
+          backgroundColor: isTextState ? "rgba(171,31,35,0.9)" : "transparent",
+          backdropFilter: isTextState ? "blur(4px)" : "none",
         }}
       >
         <AnimatePresence mode="wait">
@@ -90,16 +90,16 @@ export default function CustomCursor() {
         </AnimatePresence>
       </motion.div>
 
-      {/* Inner dot */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9999] hidden lg:block"
-        animate={{
-          x: pos.x - 3,
-          y: pos.y - 3,
+        style={{
+          x: dotX,
+          y: dotY,
+          marginLeft: -3,
+          marginTop: -3,
           opacity: visible && !isTextState ? 1 : 0,
           scale: isHover ? 0.5 : 1,
         }}
-        transition={{ type: "spring", stiffness: 400, damping: 25, mass: 0.3 }}
       >
         <div
           className="w-1.5 h-1.5 rounded-full bg-brand-burgundy"

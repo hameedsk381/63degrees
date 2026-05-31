@@ -5,6 +5,8 @@ import { useEffect } from "react";
 export default function SmoothScroller() {
   useEffect(() => {
     let lenis: any;
+    let rAF = 0;
+
     const init = async () => {
       const Lenis = (await import("lenis")).default;
       lenis = new Lenis({
@@ -16,14 +18,15 @@ export default function SmoothScroller() {
 
       const raf = (time: number) => {
         lenis.raf(time);
-        requestAnimationFrame(raf);
+        rAF = requestAnimationFrame(raf);
       };
-      requestAnimationFrame(raf);
+      rAF = requestAnimationFrame(raf);
     };
 
     init();
 
     return () => {
+      cancelAnimationFrame(rAF);
       lenis?.destroy();
     };
   }, []);

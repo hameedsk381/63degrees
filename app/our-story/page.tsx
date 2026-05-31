@@ -12,9 +12,10 @@ export default function OurStoryPage() {
       
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-center pt-44 pb-20 overflow-hidden bg-brand-linen">
-        <FloatingParticles count={15} color="rgba(171,31,35,0.12)" />
+        <FloatingParticles count={5} color="rgba(171,31,35,0.12)" />
         
         {/* Fine Architectural Grid backdrop */}
+        <div className="absolute inset-0 bg-mandala opacity-[0.3] mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-grid-bg opacity-[0.06] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,rgba(171,31,35,0.03),transparent)] pointer-events-none" />
         
@@ -91,7 +92,8 @@ export default function OurStoryPage() {
       </ParallaxSection>
 
       {/* ── CTA ── */}
-      <section className="section-pad bg-brand-linen/40 border-t border-[#AB1F24]/10">
+      <section className="section-pad bg-brand-linen/40 border-t border-[#AB1F24]/10 relative overflow-hidden">
+        <div className="absolute inset-0 bg-lotus opacity-[0.2] mix-blend-overlay pointer-events-none" />
         <div className="container-wide text-center">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-display text-brand-text mb-6 uppercase tracking-tight">

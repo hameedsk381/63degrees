@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Jost, Playfair_Display, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -9,6 +10,25 @@ import JsonLd from "@/components/JsonLd";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Analytics from "@/components/Analytics";
 import PreLoader from "@/components/PreLoader";
+
+const jost = Jost({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jost",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
+});
+
+const bebasNeue = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-bebas",
+});
 export const metadata: Metadata = {
   metadataBase: new URL("https://63degrees.in"),
   title: {
@@ -54,8 +74,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased bg-brand-linen">
+    <html lang="en" className={`${jost.variable} ${playfair.variable} ${bebasNeue.variable}`}>
+      <body className="antialiased bg-brand-linen font-body">
         <JsonLd />
         <Analytics />
         <PreLoader />

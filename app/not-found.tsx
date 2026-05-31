@@ -11,7 +11,7 @@ export default function NotFound() {
       {/* Fine Architectural Grid backdrop */}
       <div className="absolute inset-0 bg-grid-bg opacity-[0.06] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,rgba(171,31,35,0.03),transparent)] pointer-events-none" />
-      <FloatingParticles count={15} color="rgba(171,31,35,0.12)" />
+      <FloatingParticles count={5} color="rgba(171,31,35,0.12)" />
 
       <div className="container-wide relative z-10 text-center max-w-2xl mx-auto">
         <Reveal>

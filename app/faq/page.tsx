@@ -48,7 +48,7 @@ export default function FaqPage() {
       
       {/* ── HERO ── */}
       <section className="relative pt-44 pb-20 overflow-hidden bg-brand-linen border-b border-brand-burgundy/10">
-        <FloatingParticles count={15} color="rgba(171,31,35,0.12)" />
+        <FloatingParticles count={5} color="rgba(171,31,35,0.12)" />
         
         {/* Fine Architectural Grid backdrop */}
         <div className="absolute inset-0 bg-grid-bg opacity-[0.06] pointer-events-none" />
