@@ -46,7 +46,6 @@ const HorizontalScrollGallery = () => {
       <div className="absolute inset-0 bg-blockprint opacity-[0.2] mix-blend-overlay pointer-events-none" />
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
         <div className="absolute top-20 md:top-32 left-6 md:left-12 z-20 pointer-events-none bg-brand-linen/80 backdrop-blur-md p-6 md:p-8 rounded-3xl shadow-lg border border-brand-burgundy/10 max-w-lg">
-          <p className="text-brand-burgundy text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-2">The Menu</p>
           <h2 className="text-4xl md:text-7xl font-display text-brand-text max-w-sm leading-none drop-shadow-sm">
             250+ DISHES <span className="font-accent italic text-brand-burgundy font-light">to explore</span>
           </h2>
@@ -57,7 +56,7 @@ const HorizontalScrollGallery = () => {
             <div
               key={i}
               className="relative w-[80vw] md:w-[45vw] h-[60vh] md:h-[70vh] shrink-0 rounded-2xl overflow-hidden group shadow-xl border border-brand-burgundy/10"
-              data-cursor="drag"
+              
             >
               <Image
                 src={item.img}
@@ -204,34 +203,16 @@ export default function Home() {
     <div className="bg-brand-linen min-h-screen text-brand-text overflow-x-clip">
 
       {/* ── HERO ── */}
-      <section className="relative min-h-screen overflow-hidden bg-brand-linen flex items-center pt-32 lg:pt-36">
+      <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-brand-linen via-warm-50 to-brand-linen flex items-center pt-20 lg:pt-24">
 
-        <div className="absolute inset-0 bg-grid-bg opacity-[0.04] pointer-events-none" />
-        <div className="absolute inset-0 bg-mandala opacity-[0.35] mix-blend-overlay pointer-events-none" />
-        <div className="absolute -top-40 -right-40 w-[60vw] h-[60vw] rounded-full bg-brand-burgundy/3 blur-[120px] pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-[50vw] h-[50vw] rounded-full bg-brand-gold/3 blur-[100px] pointer-events-none" />
+        <div className="absolute inset-0 bg-mandala opacity-[0.25] mix-blend-overlay pointer-events-none" />
+        <div className="absolute -top-40 -right-40 w-[70vw] h-[70vw] rounded-full bg-brand-burgundy/5 blur-[140px] pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 w-[60vw] h-[60vw] rounded-full bg-brand-gold/5 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/3 left-1/4 w-[30vw] h-[30vw] rounded-full bg-brand-amber/4 blur-[100px] pointer-events-none" />
 
         <div className="container-wide relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-16 items-center min-h-[85vh] w-full">
 
           <div className="lg:col-span-7 flex flex-col justify-center order-2 lg:order-1">
-
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: easeOut }}
-              className="inline-flex items-center gap-3 mb-6"
-            >
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <span className="text-sm text-brand-text/60">
-                <strong className="text-brand-text font-semibold">4.8</strong> (2.5k+ reviews)
-              </span>
-            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -249,30 +230,12 @@ export default function Home() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2, ease: easeOut }}
-              className="mt-6 max-w-xl text-brand-text/70 text-base md:text-lg leading-relaxed"
+              className="mt-6 max-w-xl text-brand-text/70 text-base md:text-lg leading-relaxed font-karla"
             >
               Hyderabad's ultimate buffet experience —{' '}
               <span className="text-brand-burgundy font-semibold">250+ gourmet dishes</span>, live grills,
               and indulgent desserts crafted by master chefs daily.
             </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.35, ease: easeOut }}
-              className="mt-8 flex flex-wrap gap-x-10 gap-y-4"
-            >
-              {[
-                { num: "250+", label: "Gourmet Dishes" },
-                { num: "12", label: "Live Counters" },
-                { num: "5K+", label: "Happy Guests / Mo." },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <span className="block text-2xl md:text-3xl font-display text-brand-burgundy leading-none">{stat.num}</span>
-                  <span className="block text-[10px] font-bold tracking-[0.15em] uppercase text-brand-text/50 mt-1">{stat.label}</span>
-                </div>
-              ))}
-            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -297,19 +260,6 @@ export default function Home() {
               </Link>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.5, delay: 0.7 }}
-              className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-2 border-t border-brand-burgundy/10 pt-6 text-[10px] tracking-[0.2em] uppercase text-brand-text/50"
-            >
-              <div>
-                <span className="text-brand-burgundy font-bold">Location:</span> Gachibowli, Hyderabad
-              </div>
-              <div>
-                <span className="text-brand-burgundy font-bold">Hours:</span> 12 PM — 11:30 PM
-              </div>
-            </motion.div>
           </div>
 
           <div className="lg:col-span-5 relative order-1 lg:order-2 w-full h-[50vh] sm:h-[60vh] lg:h-[75vh] flex items-center justify-center">
@@ -318,7 +268,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.5, ease: easeOut }}
-              className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border border-brand-gold/15 group"
+              className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border border-brand-gold/20 group glass-light"
             >
               <Image
                 src="/images/2024-03-07-2.jpg"
@@ -327,17 +277,17 @@ export default function Home() {
                 className="object-cover object-center transition-transform duration-1000 group-hover:scale-105"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/20 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-burgundy/30 via-brand-burgundy/5 to-transparent pointer-events-none" />
               <div className="absolute inset-0 bg-noise opacity-[0.02] mix-blend-overlay pointer-events-none" />
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, delay: 0.6, ease: easeOut }}
-                className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-brand-linen/70 backdrop-blur-xl border border-white/30 shadow-lg"
+                className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl glass-light border border-white/40 shadow-lg"
               >
                 <div className="flex items-center gap-4">
-                  <div className="relative w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-brand-gold/20">
+                  <div className="relative w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-brand-gold/20 ring-2 ring-white/50">
                     <Image src="/images/food.jpg" alt="Signature dish" fill className="object-cover" />
                   </div>
                   <div className="min-w-0">
@@ -352,16 +302,17 @@ export default function Home() {
               initial={{ opacity: 0, x: -20, scale: 0.9 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ duration: 1, delay: 0.9, ease: easeOut }}
-              className="absolute -bottom-2 -left-4 sm:-left-6 z-30 w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/80 rotate-[-6deg] hidden sm:block"
+              className="absolute -bottom-2 -left-4 sm:-left-6 z-30 w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/90 rotate-[-6deg] hidden sm:block"
             >
               <Image src="/images/Schezwan-Paneer.jpg" alt="Signature dish" fill className="object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-burgundy/20 to-transparent pointer-events-none" />
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.8, x: 20 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.8, ease: easeOut }}
-              className="absolute -top-3 -right-3 z-30 flex items-center gap-2 px-4 py-2.5 rounded-full bg-brand-dark text-white shadow-xl"
+              className="absolute -top-3 -right-3 z-30 flex items-center gap-2 px-4 py-2.5 rounded-full glass-light border border-brand-gold/20 text-brand-text shadow-xl"
             >
               <svg className="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -374,11 +325,11 @@ export default function Home() {
       </section>
 
       {/* ── VISUAL JOURNEY ── */}
-      <section className="relative py-20 md:py-32 bg-brand-linen overflow-hidden">
+      <section className="relative py-20 md:py-32 bg-gradient-to-b from-brand-linen via-warm-50 to-brand-linen overflow-hidden">
         <div className="absolute inset-0 bg-paisley opacity-[0.3] mix-blend-overlay pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(171,31,35,0.03),transparent)]" />
         <div className="container-wide">
           <Reveal className="text-center mb-10 md:mb-16">
-            <p className="text-brand-burgundy text-[10px] font-bold tracking-[0.3em] uppercase mb-4">The Experience</p>
             <h2 className="text-4xl md:text-6xl font-display text-brand-text leading-none">
               A VISUAL <span className="font-accent italic text-brand-burgundy font-light">Journey</span>
             </h2>
@@ -398,7 +349,7 @@ export default function Home() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: i * 0.1, ease: easeOut }}
                 className={`relative overflow-hidden rounded-3xl group cursor-pointer ${item.span || ""} ${item.span ? "min-h-[40vh] md:min-h-[60vh]" : "min-h-[28vh] md:min-h-[35vh]"}`}
-                data-cursor="view"
+                
               >
                 <Image src={item.img} alt={item.label} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent" />
@@ -417,7 +368,6 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_30%_at_50%_0%,rgba(171,31,35,0.03),transparent)]" />
         <div className="container-wide relative z-10">
           <Reveal className="text-center mb-14">
-            <p className="text-brand-burgundy text-[10px] font-bold tracking-[0.3em] uppercase mb-4">Timings</p>
             <h2 className="text-4xl md:text-6xl font-display text-brand-text leading-none">
               WHEN WE{"'"}RE <span className="font-accent italic text-brand-burgundy font-light">Open</span>
             </h2>
@@ -482,12 +432,13 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="relative py-20 md:py-32 bg-brand-linen border-y border-brand-burgundy/5 overflow-hidden">
+      <section className="relative py-20 md:py-32 bg-gradient-to-b from-brand-linen via-warm-50 to-brand-linen border-y border-brand-burgundy/5 overflow-hidden">
         <div className="absolute inset-0 bg-noise opacity-[0.02] mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-lotus opacity-[0.3] mix-blend-overlay pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_0%,rgba(171,31,35,0.03),transparent)]" />
         <div className="container-wide relative z-10">
           <Reveal className="text-center mb-16">
-            <p className="text-brand-burgundy text-[10px] font-bold tracking-[0.3em] uppercase mb-4">Social Proof</p>
+            <p className="text-brand-burgundy text-[10px] font-bold tracking-[0.3em] uppercase mb-4">Guest Book</p>
             <h2 className="text-4xl md:text-6xl font-display text-brand-text leading-none">
               WHAT OUR <span className="font-accent italic text-brand-burgundy font-light">Guests Say</span>
             </h2>
@@ -513,10 +464,11 @@ export default function Home() {
       </section>
 
       {/* ── SIGNATURE DISHES ── */}
-      <section className="relative py-20 md:py-32 bg-brand-dark overflow-hidden">
+      <section className="relative py-20 md:py-32 bg-gradient-to-b from-brand-dark via-dark-900 to-brand-dark overflow-hidden">
         <div className="absolute inset-0 bg-noise opacity-30 mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-warli opacity-[0.25] mix-blend-overlay pointer-events-none text-white" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_50%,rgba(171,31,35,0.08),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_50%,rgba(171,31,35,0.12),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_80%_30%,rgba(186,126,43,0.06),transparent)]" />
 
         <div className="container-wide relative z-10">
           <Reveal className="text-center mb-16">
@@ -560,11 +512,11 @@ export default function Home() {
       </section>
 
       {/* ── PRICING ── */}
-      <section className="relative py-20 md:py-32 bg-brand-linen overflow-hidden">
+      <section className="relative py-20 md:py-32 bg-gradient-to-b from-brand-linen via-warm-50 to-brand-linen overflow-hidden">
         <div className="absolute inset-0 bg-rangoli opacity-[0.3] mix-blend-overlay pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_30%_at_50%_0%,rgba(171,31,35,0.03),transparent)]" />
         <div className="container-wide">
           <Reveal className="text-center mb-16">
-            <p className="text-brand-burgundy text-[10px] font-bold tracking-[0.3em] uppercase mb-4">Pricing</p>
             <h2 className="text-4xl md:text-6xl font-display text-brand-text leading-none">
               CHOOSE YOUR <span className="font-accent italic text-brand-burgundy font-light">Experience</span>
             </h2>
@@ -640,7 +592,7 @@ export default function Home() {
                         : "border border-brand-burgundy/30 text-brand-burgundy hover:bg-brand-burgundy hover:text-white"
                     }`}
                   >
-                    Book Now
+                    Reserve A Table
                   </Link>
                 </div>
               </motion.div>
@@ -654,7 +606,6 @@ export default function Home() {
         <div className="absolute inset-0 bg-mandala opacity-[0.25] mix-blend-overlay pointer-events-none" />
         <div className="container-wide">
           <Reveal className="text-center mb-10 md:mb-16">
-            <p className="text-brand-burgundy text-[10px] font-bold tracking-[0.3em] uppercase mb-4">The Ambiance</p>
             <h2 className="text-4xl md:text-6xl font-display text-brand-text leading-none">
               STEP INTO <span className="font-accent italic text-brand-burgundy font-light">Luxury</span>
             </h2>
@@ -674,7 +625,7 @@ export default function Home() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: i * 0.1, ease: easeOut }}
                 className={`relative rounded-3xl overflow-hidden group cursor-pointer border border-brand-burgundy/10 ${item.tall ? "min-h-[45vh] md:min-h-[70vh]" : "min-h-[35vh] md:min-h-[50vh]"}`}
-                data-cursor="view"
+                
               >
                 <Image src={item.img} alt={item.label} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent" />
@@ -697,16 +648,15 @@ export default function Home() {
       </section>
 
       {/* ── PERFECT FOR ── */}
-      <section className="relative py-20 md:py-32 bg-brand-dark overflow-hidden">
-        <div className="absolute inset-0 bg-noise opacity-30 mix-blend-overlay pointer-events-none" />
-        <div className="absolute inset-0 bg-lotus opacity-[0.2] mix-blend-overlay pointer-events-none text-white" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_50%,rgba(171,31,35,0.06),transparent)]" />
+      <section className="relative py-20 md:py-32 bg-gradient-to-b from-brand-linen via-warm-50 to-brand-linen overflow-hidden">
+        <div className="absolute inset-0 bg-lotus opacity-[0.25] mix-blend-overlay pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_50%,rgba(171,31,35,0.04),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_20%_70%,rgba(186,126,43,0.03),transparent)]" />
 
         <div className="container-wide relative z-10">
               <Reveal className="text-center mb-10 md:mb-16">
-                <p className="text-brand-gold text-[10px] font-bold tracking-[0.3em] uppercase mb-4">Occasions</p>
-            <h2 className="text-4xl md:text-6xl font-display text-white leading-none">
-              PERFECT FOR <span className="font-accent italic text-brand-gold font-light">Every Occasion</span>
+            <h2 className="text-4xl md:text-6xl font-display text-brand-text leading-none">
+              PERFECT FOR <span className="font-accent italic text-brand-burgundy font-light">Every Occasion</span>
             </h2>
           </Reveal>
 
@@ -723,13 +673,13 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: i * 0.1, ease: easeOut }}
-                className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors duration-500 group"
+                className="p-8 rounded-3xl border border-brand-burgundy/5 bg-white/40 hover:bg-white/60 transition-colors duration-500 group shadow-lg"
               >
                 <div className="w-14 h-14 rounded-2xl bg-brand-burgundy/10 flex items-center justify-center mb-6 group-hover:bg-brand-burgundy/20 transition-colors duration-500">
                   <item.icon size={28} className="text-brand-gold" />
                 </div>
-                <h3 className="text-xl font-display text-white mb-3">{item.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-xl font-display text-brand-text mb-3">{item.title}</h3>
+                <p className="text-brand-text/60 text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -737,12 +687,12 @@ export default function Home() {
       </section>
 
       {/* ── PRIVATE EVENTS & CATERING ── */}
-      <section className="relative py-20 md:py-32 bg-brand-linen overflow-hidden">
+      <section className="relative py-20 md:py-32 bg-gradient-to-b from-brand-linen via-warm-50 to-brand-linen overflow-hidden">
         <div className="absolute inset-0 bg-paisley opacity-[0.25] mix-blend-overlay pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(171,31,35,0.03),transparent)]" />
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <Reveal className="order-2 lg:order-1">
-              <p className="text-brand-burgundy text-[10px] font-bold tracking-[0.3em] uppercase mb-4">Catering & Events</p>
               <h2 className="text-4xl md:text-6xl font-display text-brand-text leading-none mb-8">
                 WE BRING THE <span className="font-accent italic text-brand-burgundy font-light">Feast</span><br />
                 TO YOU
@@ -750,7 +700,7 @@ export default function Home() {
               <p className="text-brand-text/70 text-base leading-relaxed mb-8 max-w-md">
                 From intimate gatherings to grand corporate events, our catering service brings the same
                 250+ dish buffet experience to your venue. Fully customizable menus, professional staff,
-                and seamless execution.
+                and full-service execution.
               </p>
               <div className="flex flex-wrap gap-6 mb-10">
                 {[
@@ -793,8 +743,9 @@ export default function Home() {
       <HorizontalScrollGallery />
 
       {/* ── QUALITY HIGHLIGHTS ── */}
-      <section className="py-20 md:py-32 bg-brand-linen border-b border-brand-burgundy/10 relative">
+      <section className="py-20 md:py-32 bg-gradient-to-b from-brand-linen via-warm-50 to-brand-linen border-b border-brand-burgundy/10 relative">
         <div className="absolute inset-0 bg-warli opacity-[0.2] mix-blend-overlay pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_30%_at_50%_0%,rgba(171,31,35,0.03),transparent)]" />
         <div className="container-wide">
           <Reveal className="text-center mb-16 md:mb-24">
             <h2 className="text-4xl md:text-6xl font-display text-brand-text">
@@ -810,7 +761,7 @@ export default function Home() {
             ].map((item, i) => (
               <Reveal key={i} delay={i * 0.2}>
                 <div className={`flex flex-col ${item.offset} group`}>
-                  <div className="relative aspect-[4/5] rounded-3xl overflow-hidden mb-8 shadow-2xl" data-cursor="view">
+                  <div className="relative aspect-[4/5] rounded-3xl overflow-hidden mb-8 shadow-2xl" >
                     <Image src={item.img} alt={item.title} fill className="object-cover transition-transform duration-1000 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition-colors duration-500" />
                   </div>
@@ -824,23 +775,23 @@ export default function Home() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 md:py-40 bg-brand-dark relative overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 bg-rangoli opacity-[0.25] mix-blend-overlay pointer-events-none text-white" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,rgba(171,31,35,0.15),transparent)]" />
-        <div className="absolute inset-0 bg-noise opacity-40 mix-blend-overlay pointer-events-none" />
+      <section className="py-24 md:py-40 bg-gradient-to-b from-brand-linen via-warm-50 to-brand-linen relative overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 bg-rangoli opacity-[0.25] mix-blend-overlay pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,rgba(171,31,35,0.06),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_50%_30%,rgba(186,126,43,0.03),transparent)]" />
 
         <div className="relative z-10 flex flex-col items-center">
           <Reveal>
-            <p className="text-brand-gold text-xs font-bold tracking-[0.3em] uppercase mb-8 text-center">Ready to Feast?</p>
+            <p className="text-brand-burgundy text-xs font-bold tracking-[0.3em] uppercase mb-8 text-center">Ready to Feast?</p>
           </Reveal>
 
           <FadeUp delay={0.2}>
             <Magnetic>
-              <Link href="/book-a-table" className="group relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-brand-dark border border-white/[0.05] flex flex-col items-center justify-center hover:border-brand-burgundy/50 transition-colors duration-500 overflow-hidden shadow-[0_0_50px_rgba(171,31,35,0.2)]">
-                <div className="absolute inset-0 bg-brand-burgundy/20 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[0.22,1,0.36,1] rounded-full" />
-                <span className="font-accent italic text-brand-gold text-xl md:text-2xl font-light mb-1 relative z-10 transition-transform duration-500 group-hover:-translate-y-2">Reserve</span>
-                <span className="font-display text-4xl md:text-5xl text-white relative z-10 transition-transform duration-500 group-hover:-translate-y-2">A TABLE</span>
-                <div className="absolute bottom-16 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 transition-all duration-500 text-white z-10">
+              <Link href="/book-a-table" className="group relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-brand-linen border border-brand-burgundy/10 flex flex-col items-center justify-center hover:border-brand-burgundy/30 transition-colors duration-500 overflow-hidden shadow-xl">
+                <div className="absolute inset-0 bg-brand-burgundy/10 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[0.22,1,0.36,1] rounded-full" />
+                <span className="font-accent italic text-brand-burgundy text-xl md:text-2xl font-light mb-1 relative z-10 transition-transform duration-500 group-hover:-translate-y-2">Reserve</span>
+                <span className="font-display text-4xl md:text-5xl text-brand-text relative z-10 transition-transform duration-500 group-hover:-translate-y-2">A TABLE</span>
+                <div className="absolute bottom-16 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 transition-all duration-500 text-brand-burgundy z-10">
                   <ArrowRight size={24} className="-rotate-45" />
                 </div>
               </Link>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode, useRef, useState, useEffect, createContext, useContext, useMemo, useCallback } from "react";
-import { motion, useInView, useScroll, useTransform, AnimatePresence, MotionValue } from "framer-motion";
+import { motion, useInView, useScroll, useTransform, AnimatePresence, MotionValue, useMotionValue } from "framer-motion";
 
 /* ─── Shared easing ─── */
 export const easeOut = [0.22, 1, 0.36, 1] as const;
@@ -401,23 +401,19 @@ export function TiltCard({ children, className = "", tiltDegree = 8 }: TiltCardP
 type MagneticProps = { children: ReactNode; className?: string; strength?: number };
 export function Magnetic({ children, className = "", strength = 0.3 }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-  const rAF = useRef(0);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
   const handleMove = (e: React.MouseEvent) => {
-    cancelAnimationFrame(rAF.current);
-    rAF.current = requestAnimationFrame(() => {
-      if (!ref.current) return;
-      const rect = ref.current.getBoundingClientRect();
-      const x = (e.clientX - rect.left - rect.width / 2) * strength;
-      const y = (e.clientY - rect.top - rect.height / 2) * strength;
-      setPos({ x, y });
-    });
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    x.set((e.clientX - rect.left - rect.width / 2) * strength);
+    y.set((e.clientY - rect.top - rect.height / 2) * strength);
   };
 
   const handleLeave = () => {
-    cancelAnimationFrame(rAF.current);
-    setPos({ x: 0, y: 0 });
+    x.set(0);
+    y.set(0);
   };
 
   return (
@@ -425,7 +421,7 @@ export function Magnetic({ children, className = "", strength = 0.3 }: MagneticP
       ref={ref}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
-      animate={{ x: pos.x, y: pos.y }}
+      style={{ x, y }}
       transition={{ type: "spring", stiffness: 150, damping: 15 }}
       className={className}
     >

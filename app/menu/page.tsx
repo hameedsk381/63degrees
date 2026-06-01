@@ -124,7 +124,7 @@ export default function MenuPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="relative h-52 rounded-2xl overflow-hidden group cursor-pointer"
-                data-cursor="hover"
+                
               >
                 <Image src={item.img} alt={item.label} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/20 to-transparent" />
@@ -150,7 +150,7 @@ export default function MenuPage() {
           {/* Sidebar */}
           <div className="lg:col-span-3 lg:sticky lg:top-28 space-y-6 lg:space-y-8 z-20">
             <Reveal>
-              <div className="relative" data-cursor="hover">
+              <div className="relative" >
                 <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-text/50" />
                 <input
                   type="text"
@@ -210,12 +210,12 @@ export default function MenuPage() {
                 </h2>
                 <div className="flex flex-wrap items-center gap-4 text-xs font-bold tracking-wider uppercase text-brand-text/80">
                   <Magnetic strength={0.2}>
-                    <div className="flex items-center gap-2 bg-brand-linen px-3 py-1.5 rounded-full border border-brand-burgundy/10 cursor-pointer hover:border-green-500/50 transition-colors shadow-sm" data-cursor="hover">
+                    <div className="flex items-center gap-2 bg-brand-linen px-3 py-1.5 rounded-full border border-brand-burgundy/10 cursor-pointer hover:border-green-500/50 transition-colors shadow-sm" >
                       <span className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.4)]"></span> Veg
                     </div>
                   </Magnetic>
                   <Magnetic strength={0.2}>
-                    <div className="flex items-center gap-2 bg-brand-linen px-3 py-1.5 rounded-full border border-brand-burgundy/10 cursor-pointer hover:border-brand-burgundy/50 transition-colors shadow-sm" data-cursor="hover">
+                    <div className="flex items-center gap-2 bg-brand-linen px-3 py-1.5 rounded-full border border-brand-burgundy/10 cursor-pointer hover:border-brand-burgundy/50 transition-colors shadow-sm" >
                       <span className="w-2 h-2 rounded-full bg-brand-burgundy shadow-[0_0_8px_rgba(171,31,35,0.4)]"></span> Non-Veg
                     </div>
                   </Magnetic>

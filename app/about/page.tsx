@@ -10,7 +10,7 @@ const features = [
   { icon: ChefHat, title: "Master Chefs", desc: "Our culinary team brings decades of experience from luxury hotels." },
   { icon: Users, title: "Family Friendly", desc: "A welcoming environment with special menus for children." },
   { icon: Clock, title: "Fresh Daily", desc: "Ingredients sourced daily to ensure the highest quality." },
-  { icon: Award, title: "Premium Quality", desc: "Uncompromising standards in every dish we serve." },
+  { icon: Award, title: "Premium Quality", desc: "Every dish meets our rigorous quality standards." },
 ];
 
 const values = [

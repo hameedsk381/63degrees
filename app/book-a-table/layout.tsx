@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Book a Table",
   description:
-    "Reserve your table at 63° Modern Regional Buffet, Hyderabad. Choose your meal, date, time, and guest count for a seamless buffet experience.",
+    "Reserve your table at 63° Modern Regional Buffet, Hyderabad. Choose your meal, date, time, and guest count for your buffet experience.",
   openGraph: {
     title: "Book a Table | 63° Modern Regional Buffet Hyderabad",
     description:

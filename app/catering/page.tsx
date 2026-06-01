@@ -92,7 +92,7 @@ export default function CateringPage() {
               <div className="absolute inset-0 bg-noise opacity-[0.02] pointer-events-none" />
               <h2 className="text-2xl md:text-3xl font-display text-brand-text mb-4 uppercase tracking-tight">BRING THE BAAP OF BUFFETS TO YOUR EVENT</h2>
               <p className="text-brand-text/80 text-sm md:text-base leading-relaxed max-w-2xl mx-auto font-light">
-                Our catering service offers a seamless blend of delicious premium cuisine, professional service, and custom event planning. Whether it's a corporate gala or private wedding celebration, our team brings the same 250+ dish excellence that makes 63° Hyderabad's favorite culinary playground — directly to your venue.
+                Our catering service offers premium cuisine, professional service, and custom event planning. Whether it's a corporate gala or private wedding celebration, our team brings the same 250+ dish excellence that makes 63° Hyderabad's favorite culinary playground — directly to your venue.
               </p>
             </div>
           </Reveal>
@@ -133,7 +133,7 @@ export default function CateringPage() {
             <h2 className="text-3xl md:text-4xl font-display text-brand-text mb-4 uppercase tracking-tight">
               WHAT WE <span className="text-brand-burgundy">OFFER</span>
             </h2>
-            <p className="text-brand-text/70 max-w-xl mx-auto">End-to-end catering services designed for a seamless experience.</p>
+            <p className="text-brand-text/70 max-w-xl mx-auto">End-to-end catering services designed for your event.</p>
           </Reveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -192,7 +192,7 @@ export default function CateringPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-pointer"
-                data-cursor="view"
+                
               >
                 <Image src={item.img} alt={item.label} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

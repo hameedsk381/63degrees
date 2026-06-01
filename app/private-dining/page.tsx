@@ -131,7 +131,7 @@ export default function PrivateDiningPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="relative aspect-square rounded-2xl overflow-hidden group cursor-pointer"
-                data-cursor="view"
+                
               >
                 <Image src={item.img} alt={item.label} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

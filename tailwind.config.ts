@@ -46,6 +46,18 @@ const config: Config = {
           400: "#d4a853",
           500: "#c4953e",
         },
+        warm: {
+          50: "#fef2f2",
+          100: "#fde8e8",
+          200: "#fbd5d5",
+          300: "#f8b4b4",
+          400: "#f87171",
+          500: "#ef4444",
+          600: "#dc2626",
+          700: "#b91c1c",
+          800: "#991b1b",
+          900: "#7f1d1d",
+        },
         dark: {
           950: "#050506",
           900: "#0a0a0c",
@@ -61,10 +73,11 @@ const config: Config = {
       },
       fontFamily: {
         display: ["var(--font-playfair)", "serif"],
-        body: ["var(--font-jost)", "sans-serif"],
+        sans: ["var(--font-karla)", "sans-serif"],
+        body: ["var(--font-karla)", "sans-serif"],
         accent: ["var(--font-playfair)", "serif"],
         heading: ["var(--font-bebas)", "sans-serif"],
-        inter: ["var(--font-jost)", "sans-serif"],
+        karla: ["var(--font-karla)", "sans-serif"],
       },
       backgroundImage: {
         "noise": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E\")",
@@ -84,15 +97,8 @@ const config: Config = {
         "lotus": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='currentColor' stroke-width='0.4' opacity='0.1'%3E%3Cpath d='M50 85 Q30 55 38 30 Q44 20 50 28 Q56 20 62 30 Q70 55 50 85Z'/%3E%3Cpath d='M50 78 Q36 55 42 36 Q46 28 50 34 Q54 28 58 36 Q64 55 50 78Z'/%3E%3Cpath d='M25 48 Q12 38 15 28 Q18 21 25 27 Q28 33 25 48Z'/%3E%3Cpath d='M75 48 Q88 38 85 28 Q82 21 75 27 Q72 33 75 48Z'/%3E%3C/g%3E%3Ccircle cx='50' cy='52' r='3' fill='currentColor' opacity='0.05'/%3E%3C/svg%3E\")",
       },
       boxShadow: {
-        "glow-sm": "0 0 20px rgba(255,90,0,0.12)",
-        "glow": "0 0 40px rgba(255,90,0,0.18)",
-        "glow-lg": "0 0 60px rgba(255,90,0,0.25)",
         "glass": "0 8px 32px rgba(0,0,0,0.4)",
         "glass-sm": "0 4px 16px rgba(0,0,0,0.3)",
-        "gold": "0 0 30px rgba(212,168,83,0.1)",
-        "elevated": "0 20px 60px rgba(0,0,0,0.4)",
-        "ember": "0 0 30px rgba(255,90,0,0.25), 0 4px 15px rgba(255,90,0,0.2)",
-        "ember-lg": "0 0 50px rgba(255,90,0,0.3), 0 8px 30px rgba(255,90,0,0.25)",
       },
       animation: {
         "shimmer": "shimmer 3s ease-in-out infinite",

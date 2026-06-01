@@ -47,7 +47,7 @@ export default function Navbar() {
         
         {/* Logo */}
         <Magnetic>
-          <Link href="/" className="relative z-50 flex items-center gap-3 group" data-cursor="hover">
+          <Link href="/" className="relative z-50 flex items-center gap-3 group" >
             <div className="relative w-32 h-12 flex items-center justify-center">
               <Image 
                 src="/images/logo.png" 
@@ -67,7 +67,7 @@ export default function Navbar() {
               <Link
                 href={link.href}
                 className="text-xs font-bold uppercase tracking-widest text-brand-text/70 hover:text-brand-gold transition-colors relative group"
-                data-cursor="hover"
+                
               >
                 {link.name}
                 <span className="absolute -bottom-2 left-1/2 w-0 h-px bg-brand-gold group-hover:w-full group-hover:left-0 transition-all duration-300" />
@@ -82,9 +82,9 @@ export default function Navbar() {
             <Link
               href="/book-a-table"
               className="px-6 py-3 bg-[#AB1F24] rounded-full text-xs font-bold uppercase tracking-widest text-white hover:bg-[#820b1e] transition-all duration-500 shadow-md hover:shadow-lg"
-              data-cursor="hover"
+              
             >
-              Book Table
+              Reserve A Table
             </Link>
           </Magnetic>
         </div>

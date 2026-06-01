@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
-import { Jost, Playfair_Display, Bebas_Neue } from "next/font/google";
+import { Karla, Playfair_Display, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroller from "@/components/SmoothScroller";
 import PageTransition from "@/components/PageTransition";
-import CustomCursor from "@/components/CustomCursor";
 import JsonLd from "@/components/JsonLd";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Analytics from "@/components/Analytics";
 import PreLoader from "@/components/PreLoader";
 
-const jost = Jost({
+const karla = Karla({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-jost",
+  variable: "--font-karla",
 });
 
 const playfair = Playfair_Display({
@@ -74,13 +73,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${jost.variable} ${playfair.variable} ${bebasNeue.variable}`}>
-      <body className="antialiased bg-brand-linen font-body">
+    <html lang="en" className={`${karla.variable} ${playfair.variable} ${bebasNeue.variable}`}>
+      <body className="antialiased bg-brand-linen font-sans">
         <JsonLd />
         <Analytics />
         <PreLoader />
         <WhatsAppButton />
-        <CustomCursor />
         <SmoothScroller />
         <Navbar />
         <main>
