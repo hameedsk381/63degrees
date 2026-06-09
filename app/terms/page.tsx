@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions | 63° Modern Regional Buffet",
+  description: "Terms and conditions for dining at 63° Modern Regional Buffet in Gachibowli, Hyderabad. Reservation policies, buffet hours, payment, and more.",
+};
+
 export default function TermsPage() {
   return (
     <div className="bg-brand-linen min-h-screen text-brand-text font-display overflow-x-clip">

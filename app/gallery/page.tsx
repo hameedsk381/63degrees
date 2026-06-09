@@ -24,9 +24,7 @@ export default function GalleryPage() {
       {/* ── HERO ── */}
       <section className="relative pt-44 pb-16 overflow-hidden bg-brand-linen">
         <FloatingParticles count={5} color="rgba(171,31,35,0.12)" />
-        <div className="absolute inset-0">
-          <Image src={images.ambiance[8]} alt="" fill className="object-cover opacity-[0.04]" />
-        </div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-[0.04]" style={{backgroundImage:`url(${images.ambiance[8]})`}} />
         {/* Fine Architectural Grid backdrop */}
         <div className="absolute inset-0 bg-paisley opacity-[0.25] mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-grid-bg opacity-[0.06] pointer-events-none" />
@@ -172,6 +170,7 @@ export default function GalleryPage() {
                     poster={selectedMedia.poster}
                     controls
                     autoPlay
+                    preload="metadata"
                     className="h-full w-full object-contain"
                   />
                 ) : (

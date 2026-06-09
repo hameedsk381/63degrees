@@ -87,9 +87,7 @@ export default function MenuPage() {
       {/* ── HERO ── */}
       <section className="relative pt-36 pb-24 overflow-hidden bg-brand-linen">
         <FloatingParticles count={4} color="rgba(171,31,35,0.1)" />
-        <div className="absolute inset-0">
-          <Image src={images.ambiance[0]} alt="" fill className="object-cover opacity-[0.04]" />
-        </div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-[0.04]" style={{backgroundImage:`url(${images.ambiance[0]})`}} />
         <div className="absolute inset-0 bg-blockprint opacity-[0.25] mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-grid-bg opacity-[0.04] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,rgba(171,31,35,0.04),transparent)]" />
@@ -323,9 +321,7 @@ export default function MenuPage() {
 
       {/* ── CTA ── */}
       <section className="py-24 bg-brand-linen relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.ambiance[9]} alt="" fill className="object-cover opacity-[0.04]" />
-        </div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-[0.04]" style={{backgroundImage:`url(${images.ambiance[9]})`}} />
         <div className="container-wide text-center relative z-10">
           <Reveal>
             <h2 className="text-4xl md:text-5xl font-display text-brand-text mb-4 leading-tight">

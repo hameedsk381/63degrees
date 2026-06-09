@@ -79,9 +79,7 @@ export default function PrivateDiningPage() {
       {/* ── HERO ── */}
       <section className="relative pt-44 pb-20 overflow-hidden bg-brand-linen">
         <FloatingParticles count={5} color="rgba(171,31,35,0.12)" />
-        <div className="absolute inset-0">
-          <Image src={images.ambiance[14]} alt="" fill className="object-cover opacity-[0.04]" />
-        </div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-[0.04]" style={{backgroundImage:`url(${images.ambiance[14]})`}} />
         <div className="absolute inset-0 bg-mandala opacity-[0.3] mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-grid-bg opacity-[0.06] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,rgba(171,31,35,0.03),transparent)] pointer-events-none" />
@@ -234,9 +232,7 @@ export default function PrivateDiningPage() {
 
       {/* ── TESTIMONIALS ── */}
       <section className="py-16 bg-brand-dark relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.ambiance[19]} alt="" fill className="object-cover opacity-[0.06]" />
-        </div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-[0.06]" style={{backgroundImage:`url(${images.ambiance[19]})`}} />
         <div className="absolute inset-0 bg-noise opacity-30 mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-lotus opacity-[0.2] mix-blend-overlay pointer-events-none text-white" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_50%,rgba(171,31,35,0.06),transparent)]" />

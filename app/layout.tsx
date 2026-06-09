@@ -8,8 +8,6 @@ import PageTransition from "@/components/PageTransition";
 import JsonLd from "@/components/JsonLd";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Analytics from "@/components/Analytics";
-import PreLoader from "@/components/PreLoader";
-
 const karla = Karla({
   subsets: ["latin"],
   display: "swap",
@@ -77,7 +75,6 @@ export default function RootLayout({
       <body className="antialiased bg-brand-linen font-sans">
         <JsonLd />
         <Analytics />
-        <PreLoader />
         <WhatsAppButton />
         <SmoothScroller />
         <Navbar />

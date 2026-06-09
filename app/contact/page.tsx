@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, MapPin, CheckCircle, Clock } from "lucide-react";
-import Image from "next/image";
 import { images } from "@/lib/images";
 import { Reveal, ScaleIn, CinematicReveal, FloatingParticles } from "@/components/animations";
 
@@ -22,9 +21,7 @@ export default function ContactPage() {
       {/* ── HERO ── */}
       <section className="relative pt-44 pb-20 overflow-hidden bg-brand-linen">
         <FloatingParticles count={5} color="rgba(171,31,35,0.12)" />
-        <div className="absolute inset-0">
-          <Image src={images.ambiance[18]} alt="" fill className="object-cover opacity-[0.04]" />
-        </div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-[0.04]" style={{backgroundImage:`url(${images.ambiance[18]})`}} />
         {/* Fine Architectural Grid backdrop */}
         <div className="absolute inset-0 bg-lotus opacity-[0.25] mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-grid-bg opacity-[0.06] pointer-events-none" />

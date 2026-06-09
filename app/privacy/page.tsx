@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | 63° Modern Regional Buffet",
+  description: "Privacy policy for 63° Modern Regional Buffet. Learn how we collect, use, and protect your personal information.",
+};
+
 export default function PrivacyPage() {
   return (
     <div className="bg-brand-linen min-h-screen text-brand-text font-display overflow-x-clip">

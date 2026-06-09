@@ -27,9 +27,7 @@ export default function AboutPage() {
       {/* ── HERO ── */}
       <section className="relative pt-36 pb-20 overflow-hidden bg-brand-linen">
         <FloatingParticles count={4} color="rgba(171,31,35,0.15)" />
-        <div className="absolute inset-0">
-          <Image src={images.ambiance[16]} alt="" fill className="object-cover opacity-[0.04]" />
-        </div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-[0.04]" style={{backgroundImage:`url(${images.ambiance[16]})`}} />
         <div className="absolute inset-0 bg-mandala opacity-[0.3] mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,rgba(171,31,35,0.06),transparent)]" />
         <div className="absolute inset-0 bg-grid-bg opacity-10" />
@@ -98,9 +96,7 @@ export default function AboutPage() {
 
       {/* ── STATS ── */}
       <section className="py-20 bg-brand-dark relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.ambiance[11]} alt="" fill className="object-cover opacity-[0.06]" />
-        </div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-[0.06]" style={{backgroundImage:`url(${images.ambiance[11]})`}} />
         <div className="absolute inset-0 bg-noise opacity-30 mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-warli opacity-[0.2] mix-blend-overlay pointer-events-none text-white" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_50%,rgba(171,31,35,0.06),transparent)]" />
@@ -131,9 +127,7 @@ export default function AboutPage() {
 
       {/* ── FEATURES ── */}
       <section className="py-24 bg-brand-linen border-t border-brand-burgundy/10 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.ambiance[13]} alt="" fill className="object-cover opacity-[0.04]" />
-        </div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-[0.04]" style={{backgroundImage:`url(${images.ambiance[13]})`}} />
         <div className="absolute inset-0 bg-blockprint opacity-[0.2] mix-blend-overlay pointer-events-none" />
         <div className="container-wide">
           <div className="text-center mb-16">
@@ -208,9 +202,7 @@ export default function AboutPage() {
 
       {/* ── THE EXPERIENCE ── */}
       <section className="py-24 bg-brand-dark relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.ambiance[15]} alt="" fill className="object-cover opacity-[0.06]" />
-        </div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-[0.06]" style={{backgroundImage:`url(${images.ambiance[15]})`}} />
         <div className="absolute inset-0 bg-noise opacity-30 mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-rangoli opacity-[0.2] mix-blend-overlay pointer-events-none text-white" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_50%,rgba(171,31,35,0.06),transparent)]" />
@@ -250,9 +242,7 @@ export default function AboutPage() {
 
       {/* ── CTA ── */}
       <section className="py-24 relative overflow-hidden bg-brand-linen">
-        <div className="absolute inset-0">
-          <Image src={images.ambiance[17]} alt="" fill className="object-cover opacity-[0.04]" />
-        </div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-[0.04]" style={{backgroundImage:`url(${images.ambiance[17]})`}} />
         <div className="absolute inset-0 bg-mandala opacity-[0.2] mix-blend-overlay pointer-events-none" />
         <div className="container-wide">
           <Reveal>

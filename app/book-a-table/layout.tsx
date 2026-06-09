@@ -1,19 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Book a Table",
-  description:
-    "Reserve your table at 63° Modern Regional Buffet, Hyderabad. Choose your meal, date, time, and guest count for your buffet experience.",
-  openGraph: {
-    title: "Book a Table | 63° Modern Regional Buffet Hyderabad",
-    description:
-      "Book your table at 63° in Gachibowli, Hyderabad. Enjoy 250+ dishes with our easy online reservation system.",
-  },
-  alternates: {
-    canonical: "https://63degrees.in/book-a-table",
-  },
+  title: "Book a Table | 63° Modern Regional Buffet",
+  description: "Reserve your table at 63° Modern Regional Buffet in Gachibowli, Hyderabad. Book online for the ultimate buffet experience with 250+ dishes.",
 };
 
-export default function BookATableLayout({ children }: { children: React.ReactNode }) {
-  return children;
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
 }

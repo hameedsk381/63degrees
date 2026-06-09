@@ -213,6 +213,7 @@ export default function Home() {
           muted
           loop
           playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-brand-dark/20" />
@@ -326,6 +327,7 @@ export default function Home() {
               muted
               loop
               playsInline
+              preload="metadata"
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-brand-dark/30" />
@@ -350,9 +352,7 @@ export default function Home() {
 
       {/* ── TESTIMONIALS ── */}
       <section className="relative py-20 md:py-32 bg-gradient-to-b from-brand-linen via-warm-50 to-brand-linen border-y border-brand-burgundy/5 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.ambiance[6]} alt="" fill className="object-cover opacity-[0.04]" />
-        </div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-[0.04]" style={{backgroundImage:`url(${images.ambiance[6]})`}} />
         <div className="absolute inset-0 bg-noise opacity-[0.02] mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-lotus opacity-[0.3] mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_0%,rgba(171,31,35,0.03),transparent)]" />
@@ -433,9 +433,7 @@ export default function Home() {
 
       {/* ── PRICING ── */}
       <section className="relative py-20 md:py-32 bg-gradient-to-b from-brand-linen via-warm-50 to-brand-linen overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.ambiance[2]} alt="" fill className="object-cover opacity-[0.04]" />
-        </div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-[0.04]" style={{backgroundImage:`url(${images.ambiance[2]})`}} />
         <div className="absolute inset-0 bg-rangoli opacity-[0.3] mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_30%_at_50%_0%,rgba(171,31,35,0.03),transparent)]" />
         <div className="container-wide">
@@ -698,9 +696,7 @@ export default function Home() {
 
       {/* ── CTA ── */}
       <section className="py-24 md:py-40 bg-gradient-to-b from-brand-linen via-warm-50 to-brand-linen relative overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0">
-          <Image src={images.ambiance[10]} alt="" fill className="object-cover opacity-[0.04]" />
-        </div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-[0.04]" style={{backgroundImage:`url(${images.ambiance[10]})`}} />
         <div className="absolute inset-0 bg-rangoli opacity-[0.25] mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,rgba(171,31,35,0.06),transparent)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_50%_30%,rgba(186,126,43,0.03),transparent)]" />
