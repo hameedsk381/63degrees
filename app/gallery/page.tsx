@@ -163,6 +163,14 @@ export default function GalleryPage() {
                     fill
                     className="object-contain"
                   />
+                ) : selectedMedia.src ? (
+                  <video
+                    src={selectedMedia.src}
+                    poster={selectedMedia.poster}
+                    controls
+                    autoPlay
+                    className="h-full w-full object-contain"
+                  />
                 ) : (
                   <iframe
                     src={`https://drive.google.com/file/d/${selectedMedia.driveId}/preview`}
@@ -174,7 +182,7 @@ export default function GalleryPage() {
                   />
                 )}
               </motion.div>
-              {selectedMedia.type === "video" && (
+              {selectedMedia.type === "video" && !selectedMedia.src && (
                 <a
                   href={`https://drive.google.com/file/d/${selectedMedia.driveId}/view`}
                   target="_blank"

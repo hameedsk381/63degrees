@@ -1,5 +1,6 @@
 "use client";
 
+import { gcp } from "@/lib/images";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -49,7 +50,7 @@ export default function OurStoryPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <Reveal>
                 <div className="relative aspect-square rounded-3xl overflow-hidden shadow-xl border border-[#AB1F24]/10">
-                  <Image src="/images/im3.jpg" alt="Culinary Origins" fill className="object-cover" />
+                  <Image src={gcp("/images/im3.jpg")} alt="Culinary Origins" fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-linen/20 to-transparent" />
                 </div>
               </Reveal>
@@ -70,7 +71,7 @@ export default function OurStoryPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <Reveal delay={0.2} className="md:order-2">
                 <div className="relative aspect-square rounded-3xl overflow-hidden shadow-xl border border-[#AB1F24]/10">
-                  <Image src="/images/2024-03-07-2.jpg" alt="The 63 Degree Method" fill className="object-cover" />
+                  <Image src={gcp("/images/2024-03-07-2.jpg")} alt="The 63 Degree Method" fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-linen/20 to-transparent" />
                 </div>
               </Reveal>

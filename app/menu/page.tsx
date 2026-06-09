@@ -1,5 +1,6 @@
 "use client";
 
+import { gcp } from "@/lib/images";
 import { useState } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { Search, Flame, Leaf, Fish, Beef, Coffee, Soup, Utensils, UtensilsCrossed, Cherry, ChefHat, Sparkles, ArrowRight } from "lucide-react";
@@ -112,10 +113,10 @@ export default function MenuPage() {
         <div className="container-wide">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { img: "/images/Im1.jpg", label: "Live Grills", count: "12+ varieties" },
-              { img: "/images/63-degrees.jpg", label: "Biryani & Rice", count: "8+ styles" },
-              { img: "/images/Schezwan-Paneer.jpg", label: "Starters", count: "40+ options" },
-              { img: "/images/3.jpg", label: "Desserts", count: "25+ delights" },
+              { img: gcp("/images/Im1.jpg"), label: "Live Grills", count: "12+ varieties" },
+              { img: gcp("/images/63-degrees.jpg"), label: "Biryani & Rice", count: "8+ styles" },
+              { img: gcp("/images/Schezwan-Paneer.jpg"), label: "Starters", count: "40+ options" },
+              { img: gcp("/images/3.jpg"), label: "Desserts", count: "25+ delights" },
             ].map((item, i) => (
               <motion.div
                 key={item.label}
@@ -291,9 +292,9 @@ export default function MenuPage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { img: "/images/Schezwan-Paneer.jpg", name: "Schezwan Paneer", tag: "Chef's Signature", desc: "Our most ordered starter — crispy, spicy, and absolutely addictive." },
-              { img: "/images/im3.jpg", name: "Chicken Dum Biryani", tag: "Guest Favorite", desc: "Fragrant layered biryani slow-cooked to perfection in sealed dum." },
-              { img: "/images/3.jpg", name: "Gulab Jamun", tag: "Best Seller", desc: "Warm, soft milk dumplings drenched in rose-scented sugar syrup." },
+              { img: gcp("/images/Schezwan-Paneer.jpg"), name: "Schezwan Paneer", tag: "Chef's Signature", desc: "Our most ordered starter — crispy, spicy, and absolutely addictive." },
+              { img: gcp("/images/im3.jpg"), name: "Chicken Dum Biryani", tag: "Guest Favorite", desc: "Fragrant layered biryani slow-cooked to perfection in sealed dum." },
+              { img: gcp("/images/3.jpg"), name: "Gulab Jamun", tag: "Best Seller", desc: "Warm, soft milk dumplings drenched in rose-scented sugar syrup." },
             ].map((item, i) => (
               <motion.div
                 key={item.name}

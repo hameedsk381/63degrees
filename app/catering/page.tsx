@@ -1,5 +1,6 @@
 "use client";
 
+import { gcp } from "@/lib/images";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, CheckCircle, UtensilsCrossed, ArrowRight, ChefHat, MapPin, Truck, Star, Quote, Users, Clock } from "lucide-react";
@@ -25,14 +26,14 @@ const services = [
 const galleryCategories = ["All", "Corporate", "Wedding", "Celebration"] as const;
 
 const gallery = [
-  { img: "/images/1.jpg", label: "Corporate Setup", category: "Corporate" },
-  { img: "/images/bi.png", label: "Buffet Spread", category: "Corporate" },
-  { img: "/images/2024-02-07.jpg", label: "Event Hall", category: "Corporate" },
-  { img: "/images/im2.jpg", label: "Live Counter", category: "Corporate" },
-  { img: "/images/2.jpg", label: "Wedding Reception", category: "Wedding" },
-  { img: "/images/4.jpg", label: "Anniversary Setup", category: "Celebration" },
-  { img: "/images/food.jpg", label: "Birthday Bash", category: "Celebration" },
-  { img: "/images/2024-03-07-2.jpg", label: "Wedding Buffet", category: "Wedding" },
+  { img: gcp("/images/1.jpg"), label: "Corporate Setup", category: "Corporate" },
+  { img: gcp("/images/bi.png"), label: "Buffet Spread", category: "Corporate" },
+  { img: gcp("/images/2024-02-07.jpg"), label: "Event Hall", category: "Corporate" },
+  { img: gcp("/images/im2.jpg"), label: "Live Counter", category: "Corporate" },
+  { img: gcp("/images/2.jpg"), label: "Wedding Reception", category: "Wedding" },
+  { img: gcp("/images/4.jpg"), label: "Anniversary Setup", category: "Celebration" },
+  { img: gcp("/images/food.jpg"), label: "Birthday Bash", category: "Celebration" },
+  { img: gcp("/images/2024-03-07-2.jpg"), label: "Wedding Buffet", category: "Wedding" },
 ];
 
 const testimonials = [

@@ -1,5 +1,6 @@
 "use client";
 
+import { gcp } from "@/lib/images";
 import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -147,12 +148,12 @@ export default function Footer() {
           >
             <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none -mx-6 px-6 snap-x">
               {[
-                "/images/food.jpg",
-                "/images/1.jpg",
-                "/images/bi.png",
-                "/images/2.jpg",
-                "/images/2024-02-07.jpg",
-                "/images/4.jpg",
+                gcp("/images/food.jpg"),
+                gcp("/images/1.jpg"),
+                gcp("/images/bi.png"),
+                gcp("/images/2.jpg"),
+                gcp("/images/2024-02-07.jpg"),
+                gcp("/images/4.jpg"),
               ].map((src, i) => (
                 <div
                   key={i}

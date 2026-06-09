@@ -1,5 +1,7 @@
 "use client";
 
+import { gcp } from "@/lib/images";
+import { videos as gcpVideos } from "@/lib/videos";
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -35,10 +37,10 @@ const HorizontalScrollGallery = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
   const items = [
-    { title: "Sizzling Starters", img: "/images/food.jpg" },
-    { title: "Live Grills", img: "/images/im2.jpg" },
-    { title: "Biryani & Rice", img: "/images/im3.jpg" },
-    { title: "Decadent Desserts", img: "/images/3.jpg" },
+    { title: "Sizzling Starters", img: gcp("/images/food.jpg") },
+    { title: "Live Grills", img: gcp("/images/im2.jpg") },
+    { title: "Biryani & Rice", img: gcp("/images/im3.jpg") },
+    { title: "Decadent Desserts", img: gcp("/images/3.jpg") },
   ];
 
   return (
@@ -270,12 +272,14 @@ export default function Home() {
               transition={{ duration: 1.5, ease: easeOut }}
               className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border border-brand-gold/20 group glass-light"
             >
-              <Image
-                src="/images/2024-03-07-2.jpg"
-                alt="63 Degrees Grand Ambience"
-                fill
-                className="object-cover object-center transition-transform duration-1000 group-hover:scale-105"
-                priority
+              <video
+                src={gcpVideos.mainVideo.mp4}
+                poster={gcpVideos.mainVideo.poster}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-burgundy/30 via-brand-burgundy/5 to-transparent pointer-events-none" />
               <div className="absolute inset-0 bg-noise opacity-[0.02] mix-blend-overlay pointer-events-none" />
@@ -288,7 +292,7 @@ export default function Home() {
               >
                 <div className="flex items-center gap-4">
                   <div className="relative w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-brand-gold/20 ring-2 ring-white/50">
-                    <Image src="/images/food.jpg" alt="Signature dish" fill className="object-cover" />
+                    <Image src={gcp("/images/food.jpg")} alt="Signature dish" fill className="object-cover" />
                   </div>
                   <div className="min-w-0">
                     <p className="text-xs font-bold text-brand-text truncate">Signature Buffet Experience</p>
@@ -304,7 +308,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.9, ease: easeOut }}
               className="absolute -bottom-2 -left-4 sm:-left-6 z-30 w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/90 rotate-[-6deg] hidden sm:block"
             >
-              <Image src="/images/Schezwan-Paneer.jpg" alt="Signature dish" fill className="object-cover" />
+              <Image src={gcp("/images/Schezwan-Paneer.jpg")} alt="Signature dish" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-burgundy/20 to-transparent pointer-events-none" />
             </motion.div>
 
@@ -337,10 +341,10 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { img: "/images/1.jpg", label: "Grand Dining Hall", span: "lg:col-span-2 lg:row-span-2" },
-              { img: "/images/im2.jpg", label: "Live Grills Station" },
-              { img: "/images/IMG_1953-1.jpg", label: "Premium Starters" },
-              { img: "/images/food.jpg", label: "Chef's Specials" },
+              { img: gcp("/images/1.jpg"), label: "Grand Dining Hall", span: "lg:col-span-2 lg:row-span-2" },
+              { img: gcp("/images/im2.jpg"), label: "Live Grills Station" },
+              { img: gcp("/images/IMG_1953-1.jpg"), label: "Premium Starters" },
+              { img: gcp("/images/food.jpg"), label: "Chef's Specials" },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -480,10 +484,10 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { img: "/images/Schezwan-Paneer.jpg", name: "Schezwan Paneer", desc: "Crispy cottage cheese tossed in spicy schezwan sauce" },
-              { img: "/images/Im1.jpg", name: "Grilled Delights", desc: "Premium meats grilled to perfection at your table" },
-              { img: "/images/63-degrees.jpg", name: "Hyderabadi Biryani", desc: "Aromatic basmati layered with tender meat & saffron" },
-              { img: "/images/3.jpg", name: "Decadent Desserts", desc: "An indulgent spread of international & Indian sweets" },
+              { img: gcp("/images/Schezwan-Paneer.jpg"), name: "Schezwan Paneer", desc: "Crispy cottage cheese tossed in spicy schezwan sauce" },
+              { img: gcp("/images/Im1.jpg"), name: "Grilled Delights", desc: "Premium meats grilled to perfection at your table" },
+              { img: gcp("/images/63-degrees.jpg"), name: "Hyderabadi Biryani", desc: "Aromatic basmati layered with tender meat & saffron" },
+              { img: gcp("/images/3.jpg"), name: "Decadent Desserts", desc: "An indulgent spread of international & Indian sweets" },
             ].map((dish, i) => (
               <motion.div
                 key={i}
@@ -613,10 +617,10 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { img: "/images/2024-02-07.jpg", label: "Elegant Interiors", tall: true },
-              { img: "/images/2.jpg", label: "Warm Ambiance" },
-              { img: "/images/4.jpg", label: "Premium Setup", tall: true },
-              { img: "/images/bi.png", label: "Festive Spread" },
+              { img: gcp("/images/2024-02-07.jpg"), label: "Elegant Interiors", tall: true },
+              { img: gcp("/images/2.jpg"), label: "Warm Ambiance" },
+              { img: gcp("/images/4.jpg"), label: "Premium Setup", tall: true },
+              { img: gcp("/images/bi.png"), label: "Festive Spread" },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -726,7 +730,7 @@ export default function Home() {
             <Reveal delay={0.2} className="order-1 lg:order-2">
               <div className="relative">
                 <div className="relative h-[50vh] lg:h-[70vh] rounded-3xl overflow-hidden shadow-2xl border border-brand-burgundy/10">
-                  <Image src="/images/1.jpg" alt="Catering & Events" fill className="object-cover" />
+                  <Image src={gcp("/images/1.jpg")} alt="Catering & Events" fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/30 via-transparent to-transparent" />
                 </div>
                 <div className="absolute -bottom-6 -right-6 p-6 rounded-2xl bg-brand-dark text-white shadow-2xl border border-white/5 hidden sm:block">
@@ -756,8 +760,8 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-x-20 gap-y-16 md:gap-y-32">
             {[
-              { title: "Live Grills", desc: "Experience the sizzle. Premium meats and vegetables grilled right at your table.", img: "/images/food.jpg", offset: "mt-0" },
-              { title: "Grand Ambiance", desc: "A sprawling luxury dining space designed for both intimate dates and grand family celebrations.", img: "/images/2024-03-07-2.jpg", offset: "md:mt-32" },
+              { title: "Live Grills", desc: "Experience the sizzle. Premium meats and vegetables grilled right at your table.", img: gcp("/images/food.jpg"), offset: "mt-0" },
+              { title: "Grand Ambiance", desc: "A sprawling luxury dining space designed for both intimate dates and grand family celebrations.", img: gcp("/images/2024-03-07-2.jpg"), offset: "md:mt-32" },
             ].map((item, i) => (
               <Reveal key={i} delay={i * 0.2}>
                 <div className={`flex flex-col ${item.offset} group`}>

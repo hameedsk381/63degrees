@@ -1,0 +1,93 @@
+const B = "https://storage.googleapis.com/63desgrees/photos"
+
+const u = (s: string) => s.replace(/ /g, "%20")
+
+export const images = {
+  ambiance: [
+    u(`${B}/Ambiance/DSC05785.webp`),
+    u(`${B}/Ambiance/DSC05795.webp`),
+    u(`${B}/Ambiance/DSC05797.webp`),
+    u(`${B}/Ambiance/DSC05808.webp`),
+    u(`${B}/Ambiance/DSC05823.webp`),
+    u(`${B}/Ambiance/DSC05831.webp`),
+    u(`${B}/Ambiance/DSC05834.webp`),
+    u(`${B}/Ambiance/DSC05842.webp`),
+    u(`${B}/Ambiance/DSC05848.webp`),
+    u(`${B}/Ambiance/DSC05862.webp`),
+    u(`${B}/Ambiance/DSC06075.webp`),
+    u(`${B}/Ambiance/DSC06084.webp`),
+    u(`${B}/Ambiance/DSC06103.webp`),
+    u(`${B}/Ambiance/DSC06172.webp`),
+    u(`${B}/Ambiance/DSC06259.webp`),
+    u(`${B}/Ambiance/DSC06262.webp`),
+    u(`${B}/Ambiance/DSC06301.webp`),
+    u(`${B}/Ambiance/DSC06307.webp`),
+    u(`${B}/Ambiance/DSC06367.webp`),
+    u(`${B}/Ambiance/DSC06385.webp`),
+    u(`${B}/Ambiance/DSC06388.webp`),
+    u(`${B}/Ambiance/DSC06394.webp`),
+    u(`${B}/Ambiance/DSC06409.webp`),
+    u(`${B}/Ambiance/DSC06412.webp`),
+    u(`${B}/Ambiance/DSC06427.webp`),
+    u(`${B}/Ambiance/DSC06430.webp`),
+    u(`${B}/Ambiance/DSC06439.webp`),
+    u(`${B}/Ambiance/DSC06454.webp`),
+    u(`${B}/Ambiance/DSC06484.webp`),
+  ],
+  food: [
+    u(`${B}/Food images/DSC05092-Enhanced-NR.webp`),
+    u(`${B}/Food images/DSC05240-Enhanced-NR.webp`),
+    u(`${B}/Food images/DSC05377-Enhanced-NR.webp`),
+    u(`${B}/Food images/DSC05382-Enhanced-NR.webp`),
+    u(`${B}/Food images/DSC05385-Enhanced-NR.webp`),
+    u(`${B}/Food images/DSC05396-Enhanced-NR.webp`),
+    u(`${B}/Food images/DSC05424-Enhanced-NR.webp`),
+    u(`${B}/Food images/DSC05435-Enhanced-NR.webp`),
+    u(`${B}/Food images/DSC05445-Enhanced-NR.webp`),
+    u(`${B}/Food images/DSC05478-Enhanced-NR.webp`),
+  ],
+  interior: [
+    u(`${B}/Interior/DSC05785.webp`),
+    u(`${B}/Interior/DSC05795.webp`),
+    u(`${B}/Interior/DSC05797.webp`),
+    u(`${B}/Interior/DSC05808.webp`),
+    u(`${B}/Interior/DSC05823.webp`),
+    u(`${B}/Interior/DSC05831.webp`),
+    u(`${B}/Interior/DSC05834.webp`),
+    u(`${B}/Interior/DSC05842.webp`),
+    u(`${B}/Interior/DSC05848.webp`),
+    u(`${B}/Interior/DSC05859.webp`),
+  ],
+  liveStations: [
+    u(`${B}/Ive stations/DSC04940-Enhanced-NR.webp`),
+    u(`${B}/Ive stations/DSC05162-Enhanced-NR.webp`),
+    u(`${B}/Ive stations/DSC05285-Enhanced-NR.webp`),
+    u(`${B}/Ive stations/DSC05286-Enhanced-NR.webp`),
+    u(`${B}/Ive stations/DSC05324-Enhanced-NR.webp`),
+  ],
+  landing: [
+    u(`${B}/Landing or booking page/DSC05492-Enhanced-NR.webp`),
+    u(`${B}/Landing or booking page/DSC05506-Enhanced-NR.webp`),
+    u(`${B}/Landing or booking page/DSC05519-Enhanced-NR.webp`),
+  ],
+} as const
+
+export const gcp = (path: string) => {
+  const map: Record<string, string> = {
+    "/images/1.jpg": images.ambiance[0],
+    "/images/2.jpg": images.ambiance[1],
+    "/images/3.jpg": images.ambiance[2],
+    "/images/4.jpg": images.ambiance[3],
+    "/images/food.jpg": images.food[0],
+    "/images/im2.jpg": images.ambiance[4],
+    "/images/im3.jpg": images.food[1],
+    "/images/Im1.jpg": images.food[2],
+    "/images/bi.png": images.ambiance[5],
+    "/images/2024-02-07.jpg": images.ambiance[6],
+    "/images/2024-03-07-2.jpg": images.ambiance[7],
+    "/images/Schezwan-Paneer.jpg": images.food[3],
+    "/images/63-degrees.jpg": images.ambiance[8],
+    "/images/IMG_1953-1.jpg": images.ambiance[9],
+  }
+  return map[path] ?? path
+}

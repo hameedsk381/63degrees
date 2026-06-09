@@ -1,5 +1,6 @@
 "use client";
 
+import { gcp } from "@/lib/images";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,10 +15,10 @@ const features = [
 ];
 
 const values = [
-  { icon: Heart, title: "Passion for Food", desc: "Every dish is crafted with love and attention to detail.", img: "/images/food.jpg" },
-  { icon: Leaf, title: "Fresh Ingredients", desc: "We source locally and seasonally for the finest produce.", img: "/images/IMG_1953-1.jpg" },
-  { icon: Users, title: "Guest First", desc: "Your satisfaction is the measure of our success.", img: "/images/im2.jpg" },
-  { icon: Sparkles, title: "Constant Innovation", desc: "Our menu evolves continuously with new creations.", img: "/images/3.jpg" },
+  { icon: Heart, title: "Passion for Food", desc: "Every dish is crafted with love and attention to detail.", img: gcp("/images/food.jpg") },
+  { icon: Leaf, title: "Fresh Ingredients", desc: "We source locally and seasonally for the finest produce.", img: gcp("/images/IMG_1953-1.jpg") },
+  { icon: Users, title: "Guest First", desc: "Your satisfaction is the measure of our success.", img: gcp("/images/im2.jpg") },
+  { icon: Sparkles, title: "Constant Innovation", desc: "Our menu evolves continuously with new creations.", img: gcp("/images/3.jpg") },
 ];
 
 export default function AboutPage() {
@@ -57,7 +58,7 @@ export default function AboutPage() {
             <Reveal>
               <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-brand-burgundy/10">
                 <Image
-                  src="/images/im2.jpg"
+                  src={gcp("/images/im2.jpg")}
                   alt="63 Degrees Interior"
                   fill
                   className="object-cover"

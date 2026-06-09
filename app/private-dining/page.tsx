@@ -1,5 +1,6 @@
 "use client";
 
+import { gcp } from "@/lib/images";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, MapPin, CheckCircle, Users, UtensilsCrossed, Sparkles, Music, Clock, ArrowRight, Star, Quote, Camera } from "lucide-react";
@@ -45,10 +46,10 @@ const packages = [
 ];
 
 const galleryImages = [
-  { img: "/images/1.jpg", label: "Elegant Setup" },
-  { img: "/images/2024-02-07.jpg", label: "Event Hall" },
-  { img: "/images/im2.jpg", label: "Decor Details" },
-  { img: "/images/4.jpg", label: "Dining Area" },
+  { img: gcp("/images/1.jpg"), label: "Elegant Setup" },
+  { img: gcp("/images/2024-02-07.jpg"), label: "Event Hall" },
+  { img: gcp("/images/im2.jpg"), label: "Decor Details" },
+  { img: gcp("/images/4.jpg"), label: "Dining Area" },
 ];
 
 const testimonials = [
