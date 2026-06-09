@@ -16,6 +16,7 @@ export default function Analytics() {
           gtag('js', new Date());
           gtag('config', '${GA_ID}', {
             page_path: window.location.pathname,
+            cookie_domain: 'auto',
           });
         `}
       </Script>
