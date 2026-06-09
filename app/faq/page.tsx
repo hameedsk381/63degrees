@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Phone, MapPin, Clock, IndianRupee, Users, Baby, Car, UtensilsCrossed, Star } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { images } from "@/lib/images";
 import { Reveal, ScaleIn, CinematicReveal, FloatingParticles } from "@/components/animations";
 import FaqJsonLd from "@/components/FaqJsonLd";
 
@@ -49,7 +51,9 @@ export default function FaqPage() {
       {/* ── HERO ── */}
       <section className="relative pt-44 pb-20 overflow-hidden bg-brand-linen border-b border-brand-burgundy/10">
         <FloatingParticles count={5} color="rgba(171,31,35,0.12)" />
-        
+        <div className="absolute inset-0">
+          <Image src={images.ambiance[20]} alt="" fill className="object-cover opacity-[0.04]" />
+        </div>
         {/* Fine Architectural Grid backdrop */}
         <div className="absolute inset-0 bg-grid-bg opacity-[0.06] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,rgba(171,31,35,0.03),transparent)] pointer-events-none" />
@@ -74,8 +78,11 @@ export default function FaqPage() {
       </section>
 
       {/* ── FAQ LIST ── */}
-      <section className="section-pad pt-20 bg-brand-linen">
-        <div className="max-w-3xl mx-auto px-6">
+      <section className="section-pad pt-20 bg-brand-linen relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.ambiance[21]} alt="" fill className="object-cover opacity-[0.04]" />
+        </div>
+        <div className="max-w-3xl mx-auto px-6 relative z-10">
           <div className="space-y-4">
             {faqs.map((faq, i) => {
               const isOpen = openIndex === i;
@@ -117,8 +124,11 @@ export default function FaqPage() {
       </section>
 
       {/* ── CTA SECTION ── */}
-      <section className="section-pad bg-brand-linen/40 border-t border-[#AB1F24]/10 relative z-10">
-        <div className="max-w-xl mx-auto px-6 text-center">
+      <section className="section-pad bg-brand-linen/40 border-t border-[#AB1F24]/10 relative z-10 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.ambiance[22]} alt="" fill className="object-cover opacity-[0.04]" />
+        </div>
+        <div className="max-w-xl mx-auto px-6 text-center relative z-10">
           <ScaleIn>
             <div className="bg-brand-linen rounded-3xl p-10 border border-brand-gold/15 hover:border-brand-gold/30 transition-all duration-300 shadow-xl relative overflow-hidden">
               <div className="absolute inset-0 bg-noise opacity-[0.02] pointer-events-none" />

@@ -1,6 +1,6 @@
 "use client";
 
-import { gcp } from "@/lib/images";
+import { gcp, images } from "@/lib/images";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, CheckCircle, UtensilsCrossed, ArrowRight, ChefHat, MapPin, Truck, Star, Quote, Users, Clock } from "lucide-react";
@@ -64,6 +64,9 @@ export default function CateringPage() {
       {/* ── HERO ── */}
       <section className="relative pt-44 pb-20 overflow-hidden bg-brand-linen">
         <FloatingParticles count={5} color="rgba(171,31,35,0.12)" />
+        <div className="absolute inset-0">
+          <Image src={images.ambiance[4]} alt="" fill className="object-cover opacity-[0.04]" />
+        </div>
         <div className="absolute inset-0 bg-warli opacity-[0.25] mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-grid-bg opacity-[0.06] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,rgba(171,31,35,0.03),transparent)] pointer-events-none" />
@@ -128,6 +131,9 @@ export default function CateringPage() {
 
       {/* ── SERVICES ── */}
       <section className="py-16 bg-brand-linen/40 border-y border-brand-burgundy/10 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.ambiance[1]} alt="" fill className="object-cover opacity-[0.03]" />
+        </div>
         <div className="absolute inset-0 bg-blockprint opacity-[0.2] mix-blend-overlay pointer-events-none" />
         <div className="max-w-6xl mx-auto px-6">
           <Reveal className="text-center mb-14">
@@ -208,6 +214,9 @@ export default function CateringPage() {
 
       {/* ── TESTIMONIALS ── */}
       <section className="py-16 bg-brand-dark relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.ambiance[3]} alt="" fill className="object-cover opacity-[0.06]" />
+        </div>
         <div className="absolute inset-0 bg-noise opacity-30 mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-rangoli opacity-[0.2] mix-blend-overlay pointer-events-none text-white" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_50%,rgba(171,31,35,0.06),transparent)]" />
@@ -248,8 +257,11 @@ export default function CateringPage() {
       </section>
 
       {/* ── FORM + INFO ── */}
-      <section className="py-16 bg-brand-linen border-y border-brand-burgundy/10">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-16 bg-brand-linen border-y border-brand-burgundy/10 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.ambiance[5]} alt="" fill className="object-cover opacity-[0.04]" />
+        </div>
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-5 gap-10">
 
             {/* Form */}
@@ -402,6 +414,9 @@ export default function CateringPage() {
 
       {/* ── CTA ── */}
       <section className="py-24 relative bg-brand-linen overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.ambiance[7]} alt="" fill className="object-cover opacity-[0.04]" />
+        </div>
         <div className="absolute inset-0 bg-mandala opacity-[0.2] mix-blend-overlay pointer-events-none" />
         <div className="container-wide text-center">
           <ScaleIn>

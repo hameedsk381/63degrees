@@ -1,6 +1,6 @@
 "use client";
 
-import { gcp } from "@/lib/images";
+import { gcp, images } from "@/lib/images";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,7 +14,9 @@ export default function OurStoryPage() {
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-center pt-44 pb-20 overflow-hidden bg-brand-linen">
         <FloatingParticles count={5} color="rgba(171,31,35,0.12)" />
-        
+        <div className="absolute inset-0">
+          <Image src={images.ambiance[12]} alt="" fill className="object-cover opacity-[0.04]" />
+        </div>
         {/* Fine Architectural Grid backdrop */}
         <div className="absolute inset-0 bg-mandala opacity-[0.3] mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-grid-bg opacity-[0.06] pointer-events-none" />
@@ -94,6 +96,9 @@ export default function OurStoryPage() {
 
       {/* ── CTA ── */}
       <section className="section-pad bg-brand-linen/40 border-t border-[#AB1F24]/10 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.ambiance[23]} alt="" fill className="object-cover opacity-[0.04]" />
+        </div>
         <div className="absolute inset-0 bg-lotus opacity-[0.2] mix-blend-overlay pointer-events-none" />
         <div className="container-wide text-center">
           <Reveal>
