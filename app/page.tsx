@@ -204,128 +204,77 @@ export default function Home() {
   return (
     <div className="bg-brand-linen min-h-screen text-brand-text overflow-x-clip">
 
-      {/* ── HERO ── */}
-      <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-brand-linen via-warm-50 to-brand-linen flex items-center pt-20 lg:pt-24">
+      {/* ── FULL-SCREEN VIDEO HERO ── */}
+      <section className="relative h-screen overflow-hidden flex items-center justify-center">
+        <video
+          src={gcpVideos.mainVideo.mp4}
+          poster={gcpVideos.mainVideo.poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-brand-dark/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-brand-dark/20" />
+        <div className="absolute inset-0 bg-mandala opacity-[0.15] mix-blend-overlay pointer-events-none" />
 
-        <div className="absolute inset-0 bg-mandala opacity-[0.25] mix-blend-overlay pointer-events-none" />
-        <div className="absolute -top-40 -right-40 w-[70vw] h-[70vw] rounded-full bg-brand-burgundy/5 blur-[140px] pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-[60vw] h-[60vw] rounded-full bg-brand-gold/5 blur-[120px] pointer-events-none" />
-        <div className="absolute top-1/3 left-1/4 w-[30vw] h-[30vw] rounded-full bg-brand-amber/4 blur-[100px] pointer-events-none" />
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: easeOut }}
+          >
+            <h1 className="text-6xl sm:text-7xl lg:text-[6rem] xl:text-[7rem] leading-[0.9] font-display text-white tracking-tight drop-shadow-2xl">
+              THE BAAP<br />
+              <span className="font-accent italic text-brand-gold font-light text-5xl sm:text-6xl lg:text-[5rem] xl:text-[6rem] lowercase tracking-normal">of</span>{' '}
+              BUFFETS
+            </h1>
+          </motion.div>
 
-        <div className="container-wide relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-16 items-center min-h-[85vh] w-full">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: easeOut }}
+            className="mt-6 text-white/70 text-base md:text-lg max-w-xl mx-auto font-karla"
+          >
+            Hyderabad's ultimate buffet experience — 250+ gourmet dishes, live grills,
+            and indulgent desserts crafted by master chefs daily.
+          </motion.p>
 
-          <div className="lg:col-span-7 flex flex-col justify-center order-2 lg:order-1">
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: easeOut }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6, ease: easeOut }}
+            className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          >
+            <Link
+              href="/book-a-table"
+              className="group relative px-10 py-4 bg-brand-gold rounded-full text-xs font-bold uppercase tracking-[0.2em] text-white shadow-2xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-0.5 flex items-center gap-3"
             >
-              <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] xl:text-[5.5rem] leading-[0.92] font-display text-brand-text tracking-tight">
-                THE BAAP<br />
-                <span className="font-accent italic text-brand-burgundy font-light text-4xl sm:text-5xl lg:text-[4rem] xl:text-[4.8rem] lowercase tracking-normal">of</span>{' '}
-                BUFFETS
-              </h1>
-            </motion.div>
+              <div className="absolute inset-0 bg-brand-amber translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]" />
+              <span className="relative z-10">Reserve A Table</span>
+              <ArrowRight size={14} className="relative z-10 -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
+            </Link>
 
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2, ease: easeOut }}
-              className="mt-6 max-w-xl text-brand-text/70 text-base md:text-lg leading-relaxed font-karla"
+            <Link
+              href="/menu"
+              className="group px-10 py-4 rounded-full text-xs font-bold uppercase tracking-[0.2em] text-white/80 border border-white/30 hover:border-white hover:text-white transition-all duration-500 hover:-translate-y-0.5"
             >
-              Hyderabad's ultimate buffet experience —{' '}
-              <span className="text-brand-burgundy font-semibold">250+ gourmet dishes</span>, live grills,
-              and indulgent desserts crafted by master chefs daily.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5, ease: easeOut }}
-              className="mt-10 flex flex-wrap items-center gap-4"
-            >
-              <Link
-                href="/book-a-table"
-                className="group relative px-8 py-4 bg-brand-burgundy rounded-full text-xs font-bold uppercase tracking-[0.2em] text-white shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-0.5 flex items-center gap-3"
-              >
-                <div className="absolute inset-0 bg-brand-dark translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]" />
-                <span className="relative z-10">Reserve A Table</span>
-                <ArrowRight size={14} className="relative z-10 -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
-              </Link>
-
-              <Link
-                href="/menu"
-                className="group px-8 py-4 rounded-full text-xs font-bold uppercase tracking-[0.2em] text-brand-text border border-brand-gold/30 hover:border-brand-gold hover:text-brand-gold transition-all duration-500 hover:-translate-y-0.5"
-              >
-                Explore Menu
-              </Link>
-            </motion.div>
-
-          </div>
-
-          <div className="lg:col-span-5 relative order-1 lg:order-2 w-full h-[50vh] sm:h-[60vh] lg:h-[75vh] flex items-center justify-center">
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.5, ease: easeOut }}
-              className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border border-brand-gold/20 group glass-light"
-            >
-              <video
-                src={gcpVideos.mainVideo.mp4}
-                poster={gcpVideos.mainVideo.poster}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-burgundy/30 via-brand-burgundy/5 to-transparent pointer-events-none" />
-              <div className="absolute inset-0 bg-noise opacity-[0.02] mix-blend-overlay pointer-events-none" />
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: 0.6, ease: easeOut }}
-                className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl glass-light border border-white/40 shadow-lg"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="relative w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-brand-gold/20 ring-2 ring-white/50">
-                    <Image src={gcp("/images/food.jpg")} alt="Signature dish" fill className="object-cover" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-xs font-bold text-brand-text truncate">Signature Buffet Experience</p>
-                    <p className="text-[10px] text-brand-text/50 mt-0.5">250+ dishes · Live counters · Desserts</p>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -20, scale: 0.9 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ duration: 1, delay: 0.9, ease: easeOut }}
-              className="absolute -bottom-2 -left-4 sm:-left-6 z-30 w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/90 rotate-[-6deg] hidden sm:block"
-            >
-              <Image src={gcp("/images/Schezwan-Paneer.jpg")} alt="Signature dish" fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-burgundy/20 to-transparent pointer-events-none" />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, x: 20 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.8, ease: easeOut }}
-              className="absolute -top-3 -right-3 z-30 flex items-center gap-2 px-4 py-2.5 rounded-full glass-light border border-brand-gold/20 text-brand-text shadow-xl"
-            >
-              <svg className="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <span className="text-xs font-bold">4.8</span>
-            </motion.div>
-          </div>
-
+              Explore Menu
+            </Link>
+          </motion.div>
         </div>
+
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <svg className="w-6 h-6 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </motion.div>
       </section>
 
       {/* ── VISUAL JOURNEY ── */}
@@ -366,71 +315,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── HOURS & OPERATION ── */}
-      <section className="relative py-24 bg-brand-linen overflow-hidden">
-        <div className="absolute inset-0 bg-blockprint opacity-[0.25] mix-blend-overlay pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_30%_at_50%_0%,rgba(171,31,35,0.03),transparent)]" />
-        <div className="container-wide relative z-10">
-          <Reveal className="text-center mb-14">
-            <h2 className="text-4xl md:text-6xl font-display text-brand-text leading-none">
-              WHEN WE{"'"}RE <span className="font-accent italic text-brand-burgundy font-light">Open</span>
+      {/* ── AMBIANCE GALLERY ── */}
+      <section className="relative min-h-screen bg-brand-dark overflow-hidden flex items-stretch">
+        <div className="grid lg:grid-cols-2 w-full">
+          <div className="relative h-[50vh] lg:min-h-screen overflow-hidden">
+            <video
+              src={gcpVideos.mainVideo2.mp4}
+              poster={gcpVideos.testimonial3.poster}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-brand-dark/30" />
+          </div>
+          <div className="relative h-[50vh] lg:min-h-screen overflow-hidden">
+            <Image src={gcp("/images/1.jpg")} alt="" fill className="object-cover" />
+            <div className="absolute inset-0 bg-brand-dark/20" />
+          </div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="text-center max-w-lg px-6">
+            <p className="text-brand-gold text-[10px] font-bold tracking-[0.3em] uppercase mb-4">The Experience</p>
+            <h2 className="text-5xl md:text-7xl font-display text-white leading-none mb-6">
+              A VISUAL <span className="font-accent italic text-brand-gold font-light">Feast</span>
             </h2>
-            <p className="text-brand-text/60 text-sm mt-4 max-w-md mx-auto">
-              Two flexible dining slots per session — reserve your preferred time.
+            <p className="text-white/60 text-sm max-w-md mx-auto font-karla">
+              Every corner of 63 Degrees tells a story. From the warm glow of our chandeliers to the sizzle of live grills — immerse yourself in an atmosphere crafted for unforgettable dining.
             </p>
-          </Reveal>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {[
-              {
-                icon: Sun, title: "Lunch Buffet", days: "Monday — Saturday",
-                slots: ["12:00 PM — 2:00 PM", "2:00 PM — 4:00 PM"],
-                price: "₹749", tag: "Mon-Sat",
-              },
-              {
-                icon: Moon, title: "Dinner Buffet", days: "Monday — Sunday",
-                slots: ["7:00 PM — 9:00 PM", "9:00 PM — 11:00 PM"],
-                price: "₹999", tag: "Mon-Sun",
-              },
-            ].map((session, i) => (
-              <motion.div
-                key={session.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, delay: i * 0.1, ease: easeOut }}
-                className="relative p-8 md:p-10 rounded-3xl bg-white/40 backdrop-blur-sm border border-brand-burgundy/10 hover:border-brand-gold/30 transition-all duration-500 shadow-lg"
-              >
-                <div className="flex items-start justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-brand-burgundy/10 flex items-center justify-center">
-                    <session.icon size={24} className="text-brand-burgundy" />
-                  </div>
-                  <span className="px-4 py-1.5 rounded-full bg-brand-gold/10 text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase border border-brand-gold/20">
-                    {session.tag}
-                  </span>
-                </div>
-                <h3 className="text-2xl font-display text-brand-text mb-1">{session.title}</h3>
-                <p className="text-brand-text/50 text-sm mb-6">{session.days}</p>
-                <div className="space-y-3 mb-6">
-                  {session.slots.map((slot, j) => (
-                    <div key={j} className="flex items-center gap-3 p-3 rounded-xl bg-brand-burgundy/[0.02] border border-brand-burgundy/5">
-                      <Clock size={14} className="text-brand-burgundy shrink-0" />
-                      <div className="flex-1">
-                        <p className="text-brand-text text-sm font-medium">{slot}</p>
-                        <p className="text-brand-text/40 text-[10px] tracking-wider uppercase">Slot {j + 1}</p>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-xs text-brand-text/50">from</span>
-                        <p className="text-lg font-display text-brand-burgundy">{session.price}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-brand-text/40 text-[10px] tracking-wider uppercase">
-                  + Sunday Brunch Special ₹1,199
-                </p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
@@ -651,25 +564,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PERFECT FOR ── */}
-      <section className="relative py-20 md:py-32 bg-gradient-to-b from-brand-linen via-warm-50 to-brand-linen overflow-hidden">
-        <div className="absolute inset-0 bg-lotus opacity-[0.25] mix-blend-overlay pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_50%,rgba(171,31,35,0.04),transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_20%_70%,rgba(186,126,43,0.03),transparent)]" />
-
+      {/* ── PERFECT FOR (IMAGE CARDS) ── */}
+      <section className="relative py-20 md:py-32 bg-brand-dark overflow-hidden">
+        <div className="absolute inset-0 bg-lotus opacity-[0.15] mix-blend-overlay pointer-events-none" />
         <div className="container-wide relative z-10">
-              <Reveal className="text-center mb-10 md:mb-16">
-            <h2 className="text-4xl md:text-6xl font-display text-brand-text leading-none">
-              PERFECT FOR <span className="font-accent italic text-brand-burgundy font-light">Every Occasion</span>
+          <Reveal className="text-center mb-10 md:mb-16">
+            <p className="text-brand-gold text-[10px] font-bold tracking-[0.3em] uppercase mb-4">Every Occasion</p>
+            <h2 className="text-4xl md:text-6xl font-display text-white leading-none">
+              PERFECT FOR <span className="font-accent italic text-brand-gold font-light">Every Moment</span>
             </h2>
           </Reveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Users, title: "Family Gatherings", desc: "Spacious seating for large families with diverse palates. Everyone finds their favorite dish." },
-              { icon: Building2, title: "Corporate Events", desc: "Impress your team with a premium buffet experience. Customizable packages available." },
-              { icon: Cake, title: "Celebrations", desc: "Birthdays, anniversaries, and more. Let us make your special day unforgettable." },
-              { icon: UtensilsCrossed, title: "Date Nights", desc: "Elegant ambiance and gourmet dining — the perfect setting for a romantic evening." },
+              { img: gcp("/images/1.jpg"), icon: "👨‍👩‍👧‍👦", title: "Family Gatherings" },
+              { img: gcp("/images/4.jpg"), icon: "🏢", title: "Corporate Events" },
+              { img: gcp("/images/2024-02-07.jpg"), icon: "🎂", title: "Celebrations" },
+              { img: gcp("/images/bi.png"), icon: "❤️", title: "Date Nights" },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -677,13 +588,14 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: i * 0.1, ease: easeOut }}
-                className="p-8 rounded-3xl border border-brand-burgundy/5 bg-white/40 hover:bg-white/60 transition-colors duration-500 group shadow-lg"
+                className="relative aspect-[3/4] rounded-3xl overflow-hidden group cursor-pointer"
               >
-                <div className="w-14 h-14 rounded-2xl bg-brand-burgundy/10 flex items-center justify-center mb-6 group-hover:bg-brand-burgundy/20 transition-colors duration-500">
-                  <item.icon size={28} className="text-brand-gold" />
+                <Image src={item.img} alt={item.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                  <span className="text-2xl mb-2 block">{item.icon}</span>
+                  <h3 className="text-xl font-display text-white">{item.title}</h3>
                 </div>
-                <h3 className="text-xl font-display text-brand-text mb-3">{item.title}</h3>
-                <p className="text-brand-text/60 text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
