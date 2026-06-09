@@ -36,37 +36,39 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? "py-4 bg-brand-linen/80 backdrop-blur-xl border-b border-brand-burgundy/10 shadow-sm" 
-          : "py-6 bg-transparent"
-      }`}
-    >
-      <div className="container-wide flex items-center justify-between">
-        
-        {/* Logo */}
-        <Magnetic>
-          <Link href="/" className="relative z-50 flex items-center gap-3 group" >
-            <div className="relative w-32 h-12 flex items-center justify-center">
-              <Image 
-                src="/images/logo.png" 
-                alt="63 Degrees Logo" 
-                fill 
-                className="object-contain"
-                priority
-              />
-            </div>
-          </Link>
-        </Magnetic>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled 
+            ? "py-4 bg-brand-linen/80 backdrop-blur-xl border-b border-brand-burgundy/10 shadow-sm" 
+            : "py-6 bg-transparent"
+        }`}
+      >
+        <div className="container-wide flex items-center justify-between">
+          
+          {/* Logo */}
+          <Magnetic>
+            <Link href="/" className="relative z-50 flex items-center gap-3 group" >
+              <div className="relative w-32 h-12 flex items-center justify-center">
+                <Image 
+                  src="/images/logo.png" 
+                  alt="63 Degrees Logo" 
+                  fill 
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </Link>
+          </Magnetic>
 
-        {/* Desktop Links */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Magnetic key={link.name}>
-              <Link
-                href={link.href}
-                className="text-xs font-bold uppercase tracking-widest text-brand-text/70 hover:text-brand-gold transition-colors relative group"
+          {/* Desktop Links */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Magnetic key={link.name}>
+                <Link
+                  href={link.href}
+                  className={`text-xs font-bold uppercase tracking-widest transition-colors relative group ${
+                    isScrolled ? "text-brand-text/70 hover:text-brand-gold" : "text-white/80 hover:text-white"
+                  }`}
                 
               >
                 {link.name}
@@ -91,7 +93,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="lg:hidden relative z-50 p-2 text-brand-text"
+          className={`lg:hidden relative z-50 p-2 ${isScrolled ? "text-brand-text" : "text-white"}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} className="text-[#AB1F24]" /> : <Menu size={24} />}

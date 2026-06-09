@@ -215,8 +215,8 @@ export default function Home() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-brand-dark/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-brand-dark/20" />
+        <div className="absolute inset-0 bg-brand-dark/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/30 via-transparent to-brand-dark/10" />
         <div className="absolute inset-0 bg-mandala opacity-[0.15] mix-blend-overlay pointer-events-none" />
 
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
