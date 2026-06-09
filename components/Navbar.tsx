@@ -19,8 +19,10 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isHome, setIsHome] = useState(false);
 
   useEffect(() => {
+    setIsHome(window.location.pathname === "/");
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
@@ -38,8 +40,8 @@ export default function Navbar() {
   return (
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled 
-            ? "py-4 bg-brand-linen/80 backdrop-blur-xl border-b border-brand-burgundy/10 shadow-sm" 
+          isScrolled || !isHome
+            ? "py-4 bg-brand-linen/80 backdrop-blur-xl border-b border-brand-burgundy/10 shadow-sm"
             : "py-6 bg-transparent"
         }`}
       >
@@ -67,7 +69,7 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   className={`text-xs font-bold uppercase tracking-widest transition-colors relative group ${
-                    isScrolled ? "text-brand-text/70 hover:text-brand-gold" : "text-white/80 hover:text-white"
+                    isHome && !isScrolled ? "text-white/80 hover:text-white" : "text-brand-text/70 hover:text-brand-gold"
                   }`}
                 
               >
@@ -93,7 +95,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className={`lg:hidden relative z-50 p-2 ${isScrolled ? "text-brand-text" : "text-white"}`}
+          className={`lg:hidden relative z-50 p-2 ${isHome && !isScrolled ? "text-white" : "text-brand-text"}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} className="text-[#AB1F24]" /> : <Menu size={24} />}
