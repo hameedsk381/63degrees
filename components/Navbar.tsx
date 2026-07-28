@@ -72,10 +72,11 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   className="text-xs font-bold uppercase tracking-widest transition-colors relative group text-brand-text hover:text-brand-gold"
-              >
-                {link.name}
-                <span className="absolute -bottom-2 left-1/2 w-0 h-px bg-brand-gold group-hover:w-full group-hover:left-0 transition-all duration-300" />
-              </Link>
+                >
+                  {link.name}
+                  <span className="absolute -bottom-2 left-1/2 w-0 h-px bg-brand-gold group-hover:w-full group-hover:left-0 transition-all duration-300" />
+                </Link>
+              </Magnetic>
             ))}
           </nav>
 
