@@ -43,9 +43,11 @@ export default function Navbar() {
       <TopBar />
       <header
         className={`fixed left-0 right-0 z-40 transition-all duration-500 ${
-          isScrolled || !isHome
+          isScrolled
             ? "py-4 bg-brand-linen shadow-md top-0"
-            : "py-6 bg-gradient-to-b from-black/60 via-transparent to-transparent top-0 lg:top-[33px]"
+            : !isHome
+            ? "py-4 bg-brand-linen shadow-md top-0 lg:top-[34px]"
+            : "py-6 bg-gradient-to-b from-black/60 via-transparent to-transparent top-0 lg:top-[34px]"
         }`}
       >
         <div className="container-wide flex items-center justify-between">
