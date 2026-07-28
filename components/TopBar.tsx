@@ -5,7 +5,7 @@ import { MapPin, Phone, Instagram, Youtube, Facebook } from "lucide-react";
 
 export default function TopBar() {
   return (
-    <div className="hidden lg:flex items-center justify-between w-full border-b border-white/10 bg-brand-dark py-2 px-8 z-50 relative">
+    <div className="hidden lg:flex items-center justify-between w-full border-b border-white/10 bg-transparent py-2 px-8 z-50 relative">
       <div className="flex items-center gap-6 text-[10px] font-bold tracking-[0.15em] text-white/60 uppercase">
         <a href="https://maps.app.goo.gl/rB4v4u2k1Xm1QfJbA" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-brand-gold transition-colors">
           <MapPin size={12} className="text-[#AB1F24]" />
