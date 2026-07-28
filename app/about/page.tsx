@@ -4,14 +4,14 @@ import { gcp, images } from "@/lib/images";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Star, ChefHat, Users, Clock, Award, Heart, Sparkles, ArrowRight, Coffee, Leaf, Music } from "lucide-react";
+import { Star, ChefHat, Users, Clock, Award, Heart, Sparkles, ArrowRight, Coffee, Leaf, Music, UtensilsCrossed, Flame } from "lucide-react";
 import { Reveal, ScaleIn, CinematicReveal, FadeUp, FloatingParticles } from "@/components/animations";
 
 const features = [
-  { icon: ChefHat, title: "Master Chefs", desc: "Our culinary team brings decades of experience from luxury hotels." },
-  { icon: Users, title: "Family Friendly", desc: "A welcoming environment with special menus for children." },
-  { icon: Clock, title: "Fresh Daily", desc: "Ingredients sourced daily to ensure the highest quality." },
-  { icon: Award, title: "Premium Quality", desc: "Every dish meets our rigorous quality standards." },
+  { icon: UtensilsCrossed, title: "250+ Buffet Delicacies", desc: "An unparalleled spread of global and regional cuisines crafted to perfection." },
+  { icon: Flame, title: "Live Cooking Stations", desc: "Watch our master chefs sizzle, grill, and toss your favorites right before you." },
+  { icon: Users, title: "Perfect for Families & Groups", desc: "A welcoming, spacious environment designed for grand celebrations and intimate dinners alike." },
+  { icon: Award, title: "Premium Dining Experience", desc: "Luxurious ambiance paired with uncompromising quality and top-tier hospitality." },
 ];
 
 const values = [
