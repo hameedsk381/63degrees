@@ -105,7 +105,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
             {[
               { num: "250+", label: "Gourmet Dishes Daily" },
-              { num: "50K+", label: "Happy Guests Served" },
+              { num: "2.5L+", label: "Happy Guests Served" },
               { num: "12", label: "Live Cooking Counters" },
               { num: "4.8", label: "Average Guest Rating" },
             ].map((stat, i) => (
