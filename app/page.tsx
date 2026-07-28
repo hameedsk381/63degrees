@@ -31,52 +31,67 @@ import {
   easeOut,
 } from "@/components/animations";
 
-const HorizontalScrollGallery = () => {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: targetRef });
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
+const ExpandableGallery = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(0);
 
   const items = [
-    { title: "Sizzling Starters", video: gcpVideos.mainVideo2.mp4 },
-    { title: "Live Grills", video: gcpVideos.testimonial3.mp4 },
-    { title: "Premium Desserts", video: gcpVideos.dessertMedley.mp4 },
-    { title: "Dessert Wonderland", video: gcpVideos.dessertWonderland.mp4 },
+    { title: "Chef's Special", media: gcp("/images/IMG_1953-1.jpg"), isVideo: false, desc: "A curated masterpiece of flavor." },
+    { title: "Live Grills", media: gcpVideos.testimonial3.mp4, isVideo: true, desc: "Sizzling perfection at your table." },
+    { title: "Chef's Love", media: gcp("/images/food.jpg"), isVideo: false, desc: "Crafted with passion and heritage." },
+    { title: "Dessert Wonderland", media: gcpVideos.dessertWonderland.mp4, isVideo: true, desc: "A sweet conclusion to your feast." },
   ];
 
   return (
-    <section ref={targetRef} className="relative h-[400vh] bg-brand-linen border-y border-brand-burgundy/10">
-      <div className="absolute inset-0 bg-blockprint opacity-[0.2] mix-blend-overlay pointer-events-none" />
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <div className="absolute top-20 md:top-32 left-6 md:left-12 z-20 pointer-events-none bg-brand-linen/80 backdrop-blur-md p-6 md:p-8 rounded-3xl shadow-lg border border-brand-burgundy/10 max-w-lg">
-          <h2 className="text-4xl md:text-7xl font-display text-brand-text max-w-sm leading-none drop-shadow-sm">
-            250+ DISHES <span className="font-accent italic text-brand-burgundy font-light">to explore</span>
+    <section className="py-20 md:py-32 bg-brand-linen relative border-y border-brand-burgundy/10 overflow-hidden">
+      <div className="absolute inset-0 bg-blockprint opacity-[0.15] mix-blend-overlay pointer-events-none" />
+      <div className="container-wide relative z-10">
+        <Reveal className="text-center mb-12 md:mb-16">
+          <p className="text-brand-burgundy text-[10px] font-bold tracking-[0.3em] uppercase mb-4">Culinary Excellence</p>
+          <h2 className="text-4xl md:text-6xl font-display text-brand-text leading-none">
+            A FEAST FOR <span className="font-accent italic text-brand-burgundy font-light">The Senses</span>
           </h2>
-        </div>
+        </Reveal>
 
-        <motion.div style={{ x }} className="flex gap-8 md:gap-16 pl-[100vw] md:pl-[60vw] pr-20">
+        <div className="flex flex-col md:flex-row h-[70vh] w-full gap-4 md:gap-3">
           {items.map((item, i) => (
             <div
               key={i}
-              className="relative w-[80vw] md:w-[45vw] h-[60vh] md:h-[70vh] shrink-0 rounded-2xl overflow-hidden group shadow-xl border border-brand-burgundy/10"
-              
+              onMouseEnter={() => setHoveredIndex(i)}
+              onMouseLeave={() => setHoveredIndex(0)}
+              className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-700 ease-[0.22,1,0.36,1] shadow-xl border border-brand-burgundy/10 ${
+                hoveredIndex === i ? "flex-[4] md:flex-[5]" : "flex-1"
+              }`}
             >
-              <video
-                src={item.video}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-0 p-8 md:p-12 flex items-end">
-                <h3 className="text-3xl md:text-5xl font-display text-white opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] pointer-events-none">
+              {item.isVideo ? (
+                <video
+                  src={item.media}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              ) : (
+                <Image src={item.media} alt={item.title} fill className="object-cover" />
+              )}
+              
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              
+              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
+                <div className={`transition-all duration-700 overflow-hidden ${
+                  hoveredIndex === i ? "max-h-20 opacity-100 mb-2" : "max-h-0 opacity-0 mb-0"
+                }`}>
+                  <p className="text-brand-gold text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase drop-shadow-md">{item.desc}</p>
+                </div>
+                <h3 className={`text-white font-display leading-tight transition-all duration-700 drop-shadow-lg ${
+                  hoveredIndex === i ? "text-3xl md:text-5xl" : "text-xl md:text-2xl truncate md:whitespace-normal md:-rotate-90 md:origin-bottom-left md:absolute md:bottom-12 md:left-14 md:w-max"
+                }`}>
                   {item.title}
                 </h3>
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
