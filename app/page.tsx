@@ -2,7 +2,7 @@
 
 import { gcp, images } from "@/lib/images";
 import { videos as gcpVideos } from "@/lib/videos";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -216,6 +216,86 @@ const TestimonialCarousel = () => {
   );
 };
 
+const VideoSlider = () => {
+  const [active, setActive] = useState(0);
+
+  const slides = [
+    { video: gcpVideos.mainVideo2.mp4, title: "Signature Starters", desc: "Premium meats and vegetables grilled right at your table." },
+    { video: gcpVideos.testimonial3.mp4, title: "Live Cooking", desc: "Watch our master chefs toss, stir, and flame your favorites." },
+    { video: gcpVideos.dessertMedley.mp4, title: "Decadent Desserts", desc: "An indulgent spread of international & Indian sweets." },
+    { video: gcpVideos.mocktails.mp4, title: "Craft Mocktails", desc: "Refreshing beverages to perfectly complement your feast." },
+    { video: gcpVideos.mainVideo.mp4, title: "The Buffet Experience", desc: "Over 250+ gourmet dishes curated daily." },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActive((prev) => (prev + 1) % slides.length);
+    }, 8000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  return (
+    <div className="w-full max-w-6xl mx-auto mt-12 md:mt-16 rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 relative bg-black aspect-[4/5] md:aspect-[21/9]">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={active}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8 }}
+          className="absolute inset-0"
+        >
+          <video
+            src={slides[active].video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
+
+      <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 flex flex-col md:flex-row justify-between items-end gap-8 z-10">
+        <div className="max-w-xl w-full">
+          <motion.h3 
+            key={`title-${active}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-5xl font-display text-white mb-2 md:mb-4 drop-shadow-lg"
+          >
+            {slides[active].title}
+          </motion.h3>
+          <motion.p 
+            key={`desc-${active}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-white/80 text-base md:text-lg drop-shadow-md font-karla"
+          >
+            {slides[active].desc}
+          </motion.p>
+        </div>
+
+        <div className="flex items-center gap-3 shrink-0 bg-black/40 backdrop-blur-xl p-3 rounded-full border border-white/20 shadow-xl w-full md:w-auto justify-center">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              className={`relative overflow-hidden transition-all duration-500 cursor-pointer rounded-full ${
+                active === i ? "w-12 h-2 md:w-16 md:h-2 bg-brand-gold shadow-[0_0_10px_rgba(186,126,43,0.5)]" : "w-2 h-2 md:w-2.5 md:h-2.5 bg-white/40 hover:bg-white/70"
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function Home() {
   const { scrollYProgress } = useScroll();
   return (
@@ -402,7 +482,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SIGNATURE DISHES ── */}
+      {/* ── CULINARY SHOWCASE (VIDEO SLIDER) ── */}
       <section className="relative py-20 md:py-32 bg-gradient-to-b from-brand-dark via-dark-900 to-brand-dark overflow-hidden">
         <div className="absolute inset-0 bg-noise opacity-30 mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-warli opacity-[0.25] mix-blend-overlay pointer-events-none text-white" />
@@ -410,43 +490,16 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_80%_30%,rgba(186,126,43,0.06),transparent)]" />
 
         <div className="container-wide relative z-10">
-          <Reveal className="text-center mb-16">
+          <Reveal className="text-center mb-8">
             <p className="text-brand-gold text-[10px] font-bold tracking-[0.3em] uppercase mb-4">From Our Kitchen</p>
             <h2 className="text-4xl md:text-6xl font-display text-white leading-none">
-              SIGNATURE <span className="font-accent italic text-brand-gold font-light">Dishes</span>
+              CULINARY <span className="font-accent italic text-brand-gold font-light">Showcase</span>
             </h2>
           </Reveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { img: gcp("/images/Schezwan-Paneer.jpg"), name: "Schezwan Paneer", desc: "Crispy cottage cheese tossed in spicy schezwan sauce" },
-              { img: gcp("/images/Im1.jpg"), name: "Grilled Delights", desc: "Premium meats grilled to perfection at your table" },
-              { img: gcp("/images/63-degrees.jpg"), name: "Hyderabadi Biryani", desc: "Aromatic basmati layered with tender meat & saffron" },
-              { img: gcp("/images/3.jpg"), name: "Decadent Desserts", desc: "An indulgent spread of international & Indian sweets" },
-            ].map((dish, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, delay: i * 0.1, ease: easeOut }}
-                className="group relative"
-              >
-                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/5">
-                  <Image src={dish.img} alt={dish.name} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute inset-0 p-6 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                    <h3 className="text-white font-display text-xl mb-1">{dish.name}</h3>
-                    <p className="text-white/60 text-sm">{dish.desc}</p>
-                  </div>
-                </div>
-                <div className="mt-4 md:hidden">
-                  <h3 className="text-white font-display text-lg">{dish.name}</h3>
-                  <p className="text-white/50 text-sm mt-1">{dish.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <Reveal delay={0.2}>
+            <VideoSlider />
+          </Reveal>
         </div>
       </section>
 
