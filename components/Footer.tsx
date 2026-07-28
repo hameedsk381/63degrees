@@ -52,9 +52,9 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               {[
-                { icon: Instagram, href: "#", label: "Instagram" },
-                { icon: Facebook, href: "#", label: "Facebook" },
-                { icon: Youtube, href: "#", label: "YouTube" },
+                { icon: Instagram, href: "https://www.instagram.com/63degreeshyd/", label: "Instagram" },
+                { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61554823130382", label: "Facebook" },
+                { icon: Youtube, href: "https://www.youtube.com/@63DegreesModernRegionalBuffet", label: "YouTube" },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}

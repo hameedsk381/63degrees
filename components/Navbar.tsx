@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Magnetic } from "@/components/animations";
+import TopBar from "./TopBar";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -38,11 +39,13 @@ export default function Navbar() {
   }, []);
 
   return (
+    <>
+      <TopBar />
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled || !isHome
-            ? "py-4 bg-brand-linen/80 backdrop-blur-xl border-b border-brand-burgundy/10 shadow-sm"
-            : "py-6 bg-transparent"
+            ? "py-4 bg-brand-linen/95 backdrop-blur-xl border-b border-brand-burgundy/10 shadow-sm top-0 lg:top-[33px]"
+            : "py-6 bg-brand-linen/80 backdrop-blur-md lg:bg-transparent top-0 lg:top-[33px]"
         }`}
       >
         <div className="container-wide flex items-center justify-between">
@@ -68,17 +71,13 @@ export default function Navbar() {
               <Magnetic key={link.name}>
                 <Link
                   href={link.href}
-                  className={`text-xs font-bold uppercase tracking-widest transition-colors relative group ${
-                    isHome && !isScrolled ? "text-white/80 hover:text-white" : "text-brand-text/70 hover:text-brand-gold"
-                  }`}
-                
+                  className="text-xs font-bold uppercase tracking-widest transition-colors relative group text-brand-text hover:text-brand-gold"
               >
                 {link.name}
                 <span className="absolute -bottom-2 left-1/2 w-0 h-px bg-brand-gold group-hover:w-full group-hover:left-0 transition-all duration-300" />
               </Link>
-            </Magnetic>
-          ))}
-        </nav>
+            ))}
+          </nav>
 
         {/* Desktop CTA */}
         <div className="hidden lg:block">
@@ -95,7 +94,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className={`lg:hidden relative z-50 p-2 ${isHome && !isScrolled ? "text-white" : "text-brand-text"}`}
+          className="lg:hidden relative z-50 p-2 text-brand-text"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} className="text-[#AB1F24]" /> : <Menu size={24} />}
@@ -152,5 +151,6 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </header>
+    </>
   );
 }

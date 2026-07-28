@@ -37,10 +37,10 @@ const HorizontalScrollGallery = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
   const items = [
-    { title: "Sizzling Starters", img: gcp("/images/food.jpg") },
-    { title: "Live Grills", img: gcp("/images/im2.jpg") },
-    { title: "Biryani & Rice", img: gcp("/images/im3.jpg") },
-    { title: "Decadent Desserts", img: gcp("/images/3.jpg") },
+    { title: "Sizzling Starters", video: "/videos/Main Video 2.mp4" },
+    { title: "Live Grills", video: "/videos/63 Testimonial 3.mp4" },
+    { title: "Premium Desserts", video: "/videos/Dessert Medley.mp4" },
+    { title: "Dessert Wonderland", video: "/videos/Dessert Wonderland.mp4" },
   ];
 
   return (
@@ -60,15 +60,17 @@ const HorizontalScrollGallery = () => {
               className="relative w-[80vw] md:w-[45vw] h-[60vh] md:h-[70vh] shrink-0 rounded-2xl overflow-hidden group shadow-xl border border-brand-burgundy/10"
               
             >
-              <Image
-                src={item.img}
-                alt={item.title}
-                fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-105"
+              <video
+                src={item.video}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute inset-0 p-8 md:p-12 flex items-end">
-                <h3 className="text-3xl md:text-5xl font-display text-white opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 drop-shadow-xl pointer-events-none">
+                <h3 className="text-3xl md:text-5xl font-display text-white opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] pointer-events-none">
                   {item.title}
                 </h3>
               </div>
@@ -207,8 +209,7 @@ export default function Home() {
       {/* ── FULL-SCREEN VIDEO HERO ── */}
       <section className="relative h-screen overflow-hidden flex items-center justify-center">
         <video
-          src={gcpVideos.mainVideo.mp4}
-          poster={gcpVideos.mainVideo.poster}
+          src="/videos/hero-bg.mp4"
           autoPlay
           muted
           loop
@@ -293,8 +294,8 @@ export default function Home() {
             {[
               { img: gcp("/images/1.jpg"), label: "Grand Dining Hall", span: "lg:col-span-2 lg:row-span-2" },
               { img: gcp("/images/im2.jpg"), label: "Live Grills Station" },
-              { img: gcp("/images/IMG_1953-1.jpg"), label: "Premium Starters" },
-              { img: gcp("/images/food.jpg"), label: "Chef's Specials" },
+              { img: gcp("/images/IMG_1953-1.jpg"), label: "Chef's Special" },
+              { img: gcp("/images/food.jpg"), label: "Chef's Love" },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -306,9 +307,9 @@ export default function Home() {
                 
               >
                 <Image src={item.img} alt={item.label} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                  <span className="text-white/80 text-[10px] font-bold tracking-[0.2em] uppercase">{item.label}</span>
+                  <span className="text-white text-[12px] md:text-[14px] font-bold tracking-[0.2em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">{item.label}</span>
                 </div>
               </motion.div>
             ))}
@@ -446,28 +447,28 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
               {
-                title: "Lunch Buffet",
-                price: "₹749",
+                title: "Veg Buffet",
+                price: "₹1,326",
                 period: "/ person",
                 icon: Sun,
-                features: ["250+ gourmet dishes", "Live grills station", "Salad & soup bar", "Dessert spread", "Soft beverages included"],
+                features: ["250+ gourmet dishes", "Live grills station", "Salad & soup bar", "Premium desserts", "Soft beverages included"],
                 accent: "border-brand-burgundy/20",
               },
               {
-                title: "Dinner Buffet",
-                price: "₹999",
+                title: "Non-Veg Buffet",
+                price: "₹1,431",
                 period: "/ person",
                 icon: Moon,
-                features: ["Full dinner spread", "Live grills & kebabs", "Biryanis & curries", "International cuisine", "Dessert & ice cream bar"],
+                features: ["Full non-veg spread", "Live grills & kebabs", "Biryanis & curries", "International cuisine", "Dessert & ice cream bar"],
                 popular: true,
                 accent: "border-brand-gold",
               },
               {
-                title: "Weekend Special",
-                price: "₹1,199",
-                period: "/ person",
+                title: "Kids Buffet",
+                price: "₹663",
+                period: "/ child",
                 icon: Sparkles,
-                features: ["All dinner features", "Premium seafood", "Live sushi counter", "Chef's specials", "Complimentary drinks"],
+                features: ["Child-friendly dishes", "Mini pizzas & pastas", "Ice cream counter", "Sweet treats", "Soft drinks"],
                 accent: "border-brand-burgundy/20",
               },
             ].map((plan, i) => (
@@ -613,20 +614,18 @@ export default function Home() {
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <Reveal className="order-2 lg:order-1">
-              <h2 className="text-4xl md:text-6xl font-display text-brand-text leading-none mb-8">
-                WE BRING THE <span className="font-accent italic text-brand-burgundy font-light">Feast</span><br />
-                TO YOU
+              <h2 className="text-4xl md:text-6xl font-display text-brand-text leading-none mb-8 uppercase">
+                WE SERVE AN <br/><span className="font-accent italic text-brand-burgundy font-light normal-case">Unforgettable</span><br />
+                Feast
               </h2>
               <p className="text-brand-text/70 text-base leading-relaxed mb-8 max-w-md">
-                From intimate gatherings to grand corporate events, our catering service brings the same
-                250+ dish buffet experience to your venue. Fully customizable menus, professional staff,
-                and full-service execution.
+                Experience a modern regional buffet with over 250+ carefully curated dishes, live cooking stations, premium desserts, and authentic flavours from across India. Every visit is crafted to delight your taste buds and create lasting memories.
               </p>
               <div className="flex flex-wrap gap-6 mb-10">
                 {[
-                  { icon: Users, label: "50-500 Guests" },
-                  { icon: UtensilsCrossed, label: "Custom Menus" },
-                  { icon: Phone, label: "End-to-End Setup" },
+                  { icon: UtensilsCrossed, label: "250+ Buffet Delicacies" },
+                  { icon: Users, label: "Live Cooking Stations" },
+                  { icon: Cake, label: "Premium Desserts" },
                 ].map((s, i) => (
                   <div key={i} className="flex items-center gap-2 text-sm text-brand-text/70">
                     <s.icon size={18} className="text-brand-burgundy" />
@@ -635,11 +634,11 @@ export default function Home() {
                 ))}
               </div>
               <Link
-                href="/catering"
+                href="/book-a-table"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-brand-burgundy rounded-full text-xs font-bold uppercase tracking-[0.2em] text-white hover:bg-brand-burgundy/90 transition-all duration-500 shadow-xl hover:shadow-2xl"
               >
                 <PartyPopper size={16} />
-                Enquire About Catering
+                Reserve a Table
               </Link>
             </Reveal>
 
@@ -650,8 +649,8 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/30 via-transparent to-transparent" />
                 </div>
                 <div className="absolute -bottom-6 -right-6 p-6 rounded-2xl bg-brand-dark text-white shadow-2xl border border-white/5 hidden sm:block">
-                  <p className="text-3xl font-display text-brand-gold">50+</p>
-                  <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/60">Events Hosted</p>
+                  <p className="text-3xl font-display text-brand-gold">1L+</p>
+                  <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/60">Customers Served</p>
                 </div>
               </div>
             </Reveal>

@@ -1,0 +1,58 @@
+[
+  {
+    "name": "63 Testimonial 3",
+    "mp4": "https://storage.googleapis.com/63desgrees/videos/63_Testimonial_3.mp4",
+    "poster": "https://storage.googleapis.com/63desgrees/videos/63_Testimonial_3.jpg",
+    "orig_size_mb": 32,
+    "comp_size_mb": 7
+  },
+  {
+    "name": "63 Testimonial 4",
+    "mp4": "https://storage.googleapis.com/63desgrees/videos/63_Testimonial_4.mp4",
+    "poster": "https://storage.googleapis.com/63desgrees/videos/63_Testimonial_4.jpg",
+    "orig_size_mb": 73,
+    "comp_size_mb": 13
+  },
+  {
+    "name": "Dessert Medley",
+    "mp4": "https://storage.googleapis.com/63desgrees/videos/Dessert_Medley.mp4",
+    "poster": "https://storage.googleapis.com/63desgrees/videos/Dessert_Medley.jpg",
+    "orig_size_mb": 43,
+    "comp_size_mb": 8
+  },
+  {
+    "name": "Dessert Wonderland",
+    "mp4": "https://storage.googleapis.com/63desgrees/videos/Dessert_Wonderland.mp4",
+    "poster": "https://storage.googleapis.com/63desgrees/videos/Dessert_Wonderland.jpg",
+    "orig_size_mb": 60,
+    "comp_size_mb": 13
+  },
+  {
+    "name": "HI Siri",
+    "mp4": "https://storage.googleapis.com/63desgrees/videos/HI_Siri.mp4",
+    "poster": "https://storage.googleapis.com/63desgrees/videos/HI_Siri.jpg",
+    "orig_size_mb": 44,
+    "comp_size_mb": 10
+  },
+  {
+    "name": "Main Video 2",
+    "mp4": "https://storage.googleapis.com/63desgrees/videos/Main_Video_2.mp4",
+    "poster": "https://storage.googleapis.com/63desgrees/videos/Main_Video_2.jpg",
+    "orig_size_mb": 31,
+    "comp_size_mb": 11
+  },
+  {
+    "name": "Main Video",
+    "mp4": "https://storage.googleapis.com/63desgrees/videos/Main_Video.mp4",
+    "poster": "https://storage.googleapis.com/63desgrees/videos/Main_Video.jpg",
+    "orig_size_mb": 67,
+    "comp_size_mb": 86
+  },
+  {
+    "name": "Mocktails",
+    "mp4": "https://storage.googleapis.com/63desgrees/videos/Mocktails.mp4",
+    "poster": "https://storage.googleapis.com/63desgrees/videos/Mocktails.jpg",
+    "orig_size_mb": 25,
+    "comp_size_mb": 6
+  }
+]
