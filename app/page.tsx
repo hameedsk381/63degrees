@@ -37,10 +37,10 @@ const HorizontalScrollGallery = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
   const items = [
-    { title: "Sizzling Starters", video: "/videos/Main Video 2.mp4" },
-    { title: "Live Grills", video: "/videos/63 Testimonial 3.mp4" },
-    { title: "Premium Desserts", video: "/videos/Dessert Medley.mp4" },
-    { title: "Dessert Wonderland", video: "/videos/Dessert Wonderland.mp4" },
+    { title: "Sizzling Starters", video: gcpVideos.mainVideo2.mp4 },
+    { title: "Live Grills", video: gcpVideos.testimonial3.mp4 },
+    { title: "Premium Desserts", video: gcpVideos.dessertMedley.mp4 },
+    { title: "Dessert Wonderland", video: gcpVideos.dessertWonderland.mp4 },
   ];
 
   return (
@@ -209,7 +209,7 @@ export default function Home() {
       {/* ── FULL-SCREEN VIDEO HERO ── */}
       <section className="relative h-screen overflow-hidden flex items-center justify-center">
         <video
-          src="/videos/hero-bg.mp4"
+          src={gcpVideos.mainVideo.mp4}
           autoPlay
           muted
           loop
