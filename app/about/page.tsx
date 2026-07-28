@@ -4,7 +4,7 @@ import { gcp, images } from "@/lib/images";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Star, ChefHat, Users, Clock, Award, Heart, Sparkles, ArrowRight, Coffee, Leaf, Music, UtensilsCrossed, Flame } from "lucide-react";
+import { Star, ChefHat, Users, Clock, Award, Heart, Sparkles, ArrowRight, Coffee, Leaf, Music, UtensilsCrossed, Flame, Cake } from "lucide-react";
 import { Reveal, ScaleIn, CinematicReveal, FadeUp, FloatingParticles } from "@/components/animations";
 
 const features = [
@@ -217,8 +217,8 @@ export default function AboutPage() {
 
           <div className="grid sm:grid-cols-3 gap-6">
             {[
-              { icon: Music, title: "Live Music", desc: "Enjoy curated playlists and live performances every weekend." },
-              { icon: Coffee, title: "Premium Beverages", desc: "From fresh juices to mocktails, our beverage bar complements every meal." },
+              { icon: Flame, title: "Live Cooking Stations", desc: "Watch our master chefs sizzle, grill, and toss your favorites right before you." },
+              { icon: Cake, title: "Premium Desserts", desc: "An indulgent spread of international & Indian sweets and ice creams." },
               { icon: Users, title: "Events & Celebrations", desc: "Private dining spaces for birthdays, anniversaries, and corporate events." },
             ].map((item, i) => (
               <motion.div
