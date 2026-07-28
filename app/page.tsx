@@ -331,22 +331,25 @@ export default function Home() {
               preload="metadata"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-brand-dark/30" />
+            <div className="absolute inset-0 bg-black/20" />
           </div>
           <div className="relative h-[50vh] lg:min-h-screen overflow-hidden">
             <Image src={gcp("/images/1.jpg")} alt="" fill className="object-cover" />
-            <div className="absolute inset-0 bg-brand-dark/20" />
+            <div className="absolute inset-0 bg-black/20" />
           </div>
         </div>
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="text-center max-w-lg px-6">
-            <p className="text-brand-gold text-[10px] font-bold tracking-[0.3em] uppercase mb-4">The Experience</p>
-            <h2 className="text-5xl md:text-7xl font-display text-white leading-none mb-6">
-              A VISUAL <span className="font-accent italic text-brand-gold font-light">Feast</span>
-            </h2>
-            <p className="text-white/60 text-sm max-w-md mx-auto font-karla">
-              Every corner of 63 Degrees tells a story. From the warm glow of our chandeliers to the sizzle of live grills — immerse yourself in an atmosphere crafted for unforgettable dining.
-            </p>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-6">
+          <div className="text-center max-w-2xl px-8 py-12 md:px-16 md:py-16 relative z-10 bg-brand-dark/30 backdrop-blur-xl border border-white/10 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50 rounded-3xl" />
+            <div className="relative z-10">
+              <p className="text-brand-gold text-[10px] font-bold tracking-[0.3em] uppercase mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">The Experience</p>
+              <h2 className="text-5xl md:text-7xl font-display text-white leading-none mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
+                A VISUAL <span className="font-accent italic text-brand-gold font-light">Feast</span>
+              </h2>
+              <p className="text-white/90 text-sm md:text-base max-w-md mx-auto font-karla drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                Every corner of 63 Degrees tells a story. From the warm glow of our chandeliers to the sizzle of live grills — immerse yourself in an atmosphere crafted for unforgettable dining.
+              </p>
+            </div>
           </div>
         </div>
       </section>
