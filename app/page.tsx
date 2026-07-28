@@ -729,8 +729,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── HORIZONTAL SCROLL GALLERY ── */}
-      <HorizontalScrollGallery />
+      {/* ── EXPANDABLE GALLERY ── */}
+      <ExpandableGallery />
 
       {/* ── QUALITY HIGHLIGHTS ── */}
       <section className="py-20 md:py-32 bg-gradient-to-b from-brand-linen via-warm-50 to-brand-linen border-b border-brand-burgundy/10 relative">
